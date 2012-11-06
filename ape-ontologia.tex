@@ -1,0 +1,89 @@
+\chapter{Ontologia de Branca de Neve}
+\label{ape:ontologia-branca-neve}
+
+\section*{Termos}
+
+\begin{multicols}{3} \noindent
+branca de neve \\
+coração em uma caixa \\
+neve \\
+dia seguinte \\
+príncipe de o reino vizinho \\
+lindo caixão de cristal \\
+princesa branco de neve \\
+animal de a floresta \\
+história para o anão \\
+dono de a cabana \\
+velhino maltrapilha \\
+trabalhar em a limpeza \\
+rainha \\
+corpo de a princesa \\
+mordida em esta maçã \\
+pedaço de maçã \\
+reino distante \\
+reino vizinho \\
+princesa \\
+feticeira cruel \\
+lábio vermelho \\
+sete anõezinhos \\
+poção venenoso \\
+espelho mágico \\
+cabelo preto \\
+lindo jovem \\
+copo d'agua \\
+anão \\
+\end{multicols}
+
+\section*{Relações de Equivalência}
+\begin{itemize}
+  \item \texttt{Branca\_de\_Neve} $\equiv$ \texttt{Belo}
+  \item \texttt{Dono\_De\_A\_Cabana} $\equiv$ \texttt{Sete\_Anõezinhos}
+  \item \texttt{Encantadora} $\equiv$ \texttt{Branca\_De\_Neve}
+  \item \texttt{Meigo} $\equiv$ \texttt{Branca\_De\_Neve}
+  \item \texttt{Pedaço\_de\_maçã} $\equiv$ \texttt{Maçã}
+  \item \texttt{Pele} $\equiv$ \texttt{Cabelo\_Preto}
+  \item \texttt{Pele} $\equiv$ \texttt{Lábio\_Vermelho}
+  \item \texttt{Pele} $\equiv$ \texttt{Neve}
+  \item \texttt{Rainha} $\equiv$ \texttt{Belo}
+  \item \texttt{Rainha} $\equiv$ \texttt{Feiticeira\_Cruel}
+  \item \texttt{Voltar\_Para\_Casa} $\equiv$ \texttt{Dono\_De\_A\_Cabeça}
+\end{itemize}
+
+\section*{Relações Taxonômicas}
+\newcommand{\conceito}[2]{ \emph{#1}  \texttt{#2} }
+
+\begin{itemize}
+  \item \texttt{Anão} $\sqsubseteq$ \conceito{acordar}{Princesa} $\sqcup$  \conceito{can\_be\_alertado}{Anima\_De\_A\_Floresta} $\sqcup$ \conceito{chegar}{Cabana} $\sqcup$ \conceito{deixar\_levar}{Corpo\_De\_A\_Princesa} $sqcup$ \conceito{desfazer}{Feitiço} $\sqcup$  \conceito{estar\_alojar}{Garganta\_De\_Branca} $\sqcup$ \conceito{foram\_erquer}{Caixão}
+  
+  \item \texttt{Branca\_De\_Neve} $\sqsubseteq$ \conceito{contar}{Historia\_Para\_O\_Anão} $\sqcup$ \conceito{correr}{Floresta} $\sqcup$ \conceito{despedir}{Sete\_Anão} $\sqcup$  \conceito{ficar}{Bonito} $\sqcup$  \conceito{ficar}{Sozinho} $\sqcup$  \conceito{ficar}{Vez} $\sqcup$ \conceito{lavar}{Louça}  $\sqcup$ \conceito{partir\_juntar}{Príncipe\_Para\_Um\_Castelo\_Distante} $\sqcup$  \conceito{passar}{Dia\_Lavar} $\sqcup$ \conceito{torar}{Bonito} $\sqcup$ \conceito{vagar}{Floresta}
+  
+  \item \texttt{Caçador} $\sqsubseteq$ \conceito{colocar}{Coração\_Em\_Um\_Caixo} $\sqcup$ \conceito{levar}{Rainha}
+  
+  \item \texttt{Certo\_Dia} $\sqsubseteq$  \conceito{ver}{Branca\_De\_Neve}
+  
+  \item \texttt{Dia\_Seguinte} $\sqsubseteq$  \conceito{convidar}{Menino\_Para\_Um\_Passeio}
+  
+  \item \texttt{Mordida\_Em\_Esta\_Maçã}  $\sqsubseteq$  \conceito{fazer}{Branco\_De\_Neve\_Dormir}
+  
+  \item \texttt{Poção\_Venenoso} $\sqsubseteq$ \conceito{colocar}{Maçã}
+  
+  \item \texttt{Princesa} $\sqsubseteq$ \conceito{continuar}{Vivo} $\sqcup$ \conceito{continuar}{Vivo} $\sqcup$ \conceito{oferecer}{Copo\_D'\_Agua} $\sqcup$ \conceito{vestir}{Arrumação} $\sqcup$ \conceito{vestir}{Castelo}  $\sqcup$ \conceito{vestir}{Trabalhar\_Em\_A\_Limpeza} $\sqcup$ \conceito{vestir}{Trapo}
+  
+  \item \texttt{Rainha} $\sqsubseteq$ \conceito{ficar}{Doente}  $\sqcup$  \conceito{ficar}{Curioso}  $\sqcup$  \conceito{perguntar}{Espelho}  $\sqcup$  \conceito{resolver\_consultar}{Espelho}
+\end{itemize}
+
+\section*{Conceitos Superiores Encontrados}
+
+\begin{itemize}
+  \item \texttt{Colocar} 
+  	\begin{itemize}
+  		\item Domínio: \texttt{Caçador}  $\sqcap$ \texttt{Poção\_Venenosa}
+  		\item Imagem: -
+  	\end{itemize}
+  	
+  \item \texttt{Ficar}
+    \begin{itemize}
+       \item Dominio:  \texttt{Ser} $\sqcap$ \texttt{Ficar}
+       \item Imagem: 
+    \end{itemize}
+\end{itemize}

@@ -1,0 +1,189 @@
+\chapter{Avaliação de Ontologias}
+\label{cap:avaliacao}
+
+Este capítulo foi dividido em três partes: (i) introdução aos métodos de avaliação de ontologias, (ii) detalhamento do método \textit{OntoMetrics} e (iii) apresentação dos resultados originados por ele.
+
+\section{Introdução}
+É difícil definir o que é uma ``boa ontologia'', mas para alguns
+autores, como \cite{claudiaFreitas07}, uma boa
+ontologia é apenas aquela que cumpre com os requisitos do sistema
+onde queremos aplicá-la.
+
+Outra definição interessante também é a de \cite{ontologyevaluation10} que indica que a uma \emph{boa ontologia} é aquela que tem a intenção de ser amplamente reutilizável  e ser capaz de colaborar com outras aplicações.
+
+Ante a preocupação por obter uma ontologia que represente da maneira mais fiel um certo domínio de conhecimento, os investigadores propuseram durante os últimos anos diferentes formas de avaliar tais ontologias. De acordo com o trabalho de  \cite{Brank05asurvey},
+existem as seguintes formas de avaliação de ontologias:
+\begin{itemize}
+\item[(i)] \textit{baseando-se em uma referência dourada}, em que a
+  referência dourada é uma ontologia fruto da síntese de outras
+  ontologias de referência, e da discussão com um especialista do
+  domínio;
+\item[(ii)] \textit{usando a ontologia em uma aplicação}, em que
+  respondemos as perguntas: "Satisfazemos as restrições do sistema?",
+  "Resolve as consultas que os usuários precisam?";
+\item[(iii)] \textit{comparando com uma fonte de dados}, isto é, se a
+  ontologia possui termos para conceitos e relações congruentes
+  com o domínio estudado.
+\item[(iv)] \textit{feita por um humano}, que na verdade é feita por
+  um especialista que determina se a ontologia representa realmente o
+  domínio de estudo.
+\end{itemize}
+
+Devemos levar em consideração também que as ontologias desenvolvidas manualmente são diferentes daquelas que foram obtidas através de um método de aprendizado semi ou completamente automático e requerem outra forma de avaliação. O trabalho de \cite{dellschaft08} analisa justamente diferentes enfoques para a avaliação de ontologias fruto de algum método de aprendizado. Podemos ver tal análise na Tabela \ref{tab:enfoques-avaliacao}.
+
+\begin{table}
+\centering
+\begin{tabular}{|p{4cm}|p{12cm}|}
+\hline
+\textbf{Enfoques} & \textbf{Características} \\ \hline
+\textbf{Baseado em tarefas} &
+\begin{itemize}
+  \item Diferentes métricas de  recuperação de informação são usadas.
+  \item A tendência deles é indicar o que falta, o que sobra e o que deve ser mudado na ontologia, no entanto, não existe uma só forma certa de avaliar tais coisas.
+\end{itemize}
+\\ \hline
+
+\textbf{Baseado em \textit{corpus}} &
+\begin{itemize}
+   \item Úteis para avaliar se uma ontologia cobre efetivamente um certo domínio.
+   \item Parcialmente úteis pois as ontologias retornadas por estes métodos podem ser usadas como \textit{benchmark} para avaliar as ontologias fruto de outras técnicas de AO.
+\end{itemize}
+\\ \hline
+
+\textbf{Baseado em critérios} & 
+\begin{itemize}
+  \item Uma grande variedade de medições podem ser estabelecidas.
+  \item Pluralidade de avaliações. Cada uma pode dar uma diferente ontologia ganhadora.
+\end{itemize}
+\\ \hline
+\end{tabular}
+\caption{Enfoques usados na avaliação de métodos de AO}
+\label{tab:enfoques-avaliacao} 
+\end{table}
+
+\section{\textit{OntoMetric}}
+\cite{Lozano02Metrica}, propôs em sua tese de doutorado o método \textit{OntoMetric} para reconhecer que ontologia, dentre outras, deve ser usada para um certo domínio.  
+
+Esse método usou a metodologia  \textit{METHONTOLOGY} \citep{methontology} para construir as ontologias de referência e descreveu também, um marco multinível de características onde 160 itens foram agrupados em $5$ dimensões para avaliar a idoneidade de uma ontologia:
+
+\begin{itemize}
+\item conteúdo,
+\item linguagem de implementação, 
+\item metodologia de desenvolvimento,
+\item ambientes de desenvolvimento, e
+\item custos de uso
+\end{itemize}
+
+As características da dimensão \textit{conteúdo}, avaliam os elementos internos da ontologia. Possui os seguintes fatores:
+\begin{itemize}
+ \item Conceitos.
+ \item Relações.
+ \item Taxonomia.
+ \item Axiomas.
+\end{itemize}
+
+As características da dimensão \textit{linguagem} englobam aspectos mais formais sobre lógica, atributos, instâncias, inferências  e outras particularidades.
+
+As características relacionadas com à dimensão "\textit{metodologia de desenvolvimento}" possuem fatores como:
+\begin{itemize}
+  \item Precisão da Metodologia, em que se fala sobre partes técnicas no planejamento do projeto de desenvolvimento da ontologia.
+  \item Usabilidade da Metodologia, em que se verifica a clareza das instruções do projeto.
+  \item Maturidade da Metodologia, para medir a magnitude do projeto.
+\end{itemize}
+
+As características relacionadas à dimensão "\textit{ambiente de desenvolvimento}" possuem os seguintes fatores:
+\begin{itemize}
+ \item Prestações do Ambiente.
+ \item Aspectos de Visualização.
+ \item Aspectos de Edição.
+ \item Aspectos de Interação.
+ \item Aspectos Metodológicos.
+ \item Aspectos Cooperativos.
+ \item Aspectos de Tradução.
+ \item Aspectos de Integração de Ontologias.
+\end{itemize}
+
+Finalmente, as características relacionadas à dimensão "\textit{custos de uso}" são destinadas a fins comerciais.
+
+No presente trabalho estamos interessados apenas na idoneidade do conteúdo da ontologia, porém, a parte de axiomas não será considerada, pois nosso método não considerou tais elementos. Vemos na Tabela \ref{tab:aval-conteudo}  as características da dimensão \textit{conteúdo}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|p{12cm}|l|} \hline
+    \textbf{Código} & \textbf{Característica}  \\ \hline \hline
+    \multicolumn{2}{|c|}{\textbf{Fatores de Conceitos}} \\ \hline
+    C11 & Os conceitos essenciais para o projeto encontram-se na ontologia \\ \hline
+    C12 & Os conceitos essenciais para o projeto estão em níveis superiores da ontologia  \\ \hline
+    C13 & Os conceitos estão descritos adequadamente em linguagem natural  \\ \hline
+    C14 & A especificação formal dos conceitos coincide com a descrição em linguagem natural   \\ \hline
+    C15 & Os atributos descrevem de forma precisa os conceitos  \\ \hline
+    C16 & O número de conceitos é adequado para representar a ontologia \\ \hline
+
+    \multicolumn{2}{|c|}{\textbf{Fatores de Relações}} \\ \hline
+    C21 & As relações essenciais para o projeto estão na ontologia  \\ \hline
+    C22 & Os conceitos encontram-se relacionados corretamente  \\ \hline
+    C23 & As relações estão descritas adequadamente em linguagem natural  \\ \hline
+    C24 & As aridades das relações são adequadas para o projeto  \\ \hline
+    C25 & As relações têm especificadas suas propriedades formais  \\ \hline
+    C26 & O número de relações é adequado para representar a ontologia  \\ \hline
+
+    \multicolumn{2}{|c|}{\textbf{Fatores de Taxonomia}} \\ \hline
+    C31 & Classificação dos conceitos de várias perspectivas  \\ \hline
+    C32 & As relações \textit{Not-Subclass-Of} são apropriadas  \\ \hline
+    C33 & As relações de partição disjunta são usadas apropriadamente  \\ \hline
+    C34 & As relações de partição exaustiva são usadas apropriadamente  \\ \hline
+    C35 & Profundidade máxima adequada  \\ \hline
+    C36 & A média de filhos por conceito é adequada  \\ \hline
+
+  \end{tabular}
+  \caption{Características na dimensão \textit{conteúdo} sem a avaliação do fator de axiomas.}
+  \label{tab:aval-conteudo}
+\end{table}
+
+\section{Avaliação com \textit{OntoMetrics}}
+As ontologias  geradas com nosso método de análise sintático e ACF foram colocadas em formato \textit{web} e um pequeno \textit{site} foi feito  para que outras pessoas as avaliem. Podemos ver algumas imagens no Apêndice \ref{ape:aonto-web}. Neste \textit{site} foi incorporado um questionário para medir os Fatores de Conceitos, Relações e Taxonomia. Vemos um exemplo do questionário  no Apêndice \ref{ape:aonto-questionario}.
+
+Ressaltamos  que a notação usou os lemas das palavras. Portanto, os nomes das relações são verbos no infinitivo. Aqueles SN com adjetivos estarão no singular e no gênero masculino. Quando uma negação for encontrada, um prefixo ``not\_'' é adicionado e quando uma forma passiva é reconhecida,  o prefixo ``can\_be'' é adicionado ao verbo.
+
+\begin{itemize}
+  \item As pessoas que avaliaram a ontologia de Métodos Ágeis foram os membros do laboratório de métodos ágeis da USP, os mesmos que formaram AgilCoop. 
+  \item A ontologia da Doença de Câncer foi avaliada por estudantes de medicina cursando o terceiro ano e também por membros do grupo de pesquisa no Hospital do Câncer A.C. Camargo.
+   \item Finalmente, a ontologia do conto de fada Branca de Neve foi avaliada pelo público em geral.
+\end{itemize}
+
+As respostas dos questionários estavam no intervalo de $1$ a $5$, e encontram-se na Tabela \ref{tab:resultados-ontometrics}.
+
+\begin{table}
+\centering
+\begin{tabular}{|c|c|c|c|} \hline
+\textbf{Fator} & Métodos Ágeis & Branca de Neve & Doença do Câncer  \\ \hline
+\multicolumn{4}{|c|}{Fatores de Conceito} \\ \hline
+C11 & 4,3 & 4,7 &  4,4 \\ \hline
+C12 & 4,3 & 4    &   4   \\ \hline
+C13 &   4  & 4,7 & 3,7  \\ \hline
+C14 & 4,3 & 4,7 & 3,4  \\ \hline
+C16 &  4   & 4,7 &   4  \\ \hline
+\multicolumn{4}{|c|}{Fatores de Relações} \\ \hline
+C21 &   4  &   5  & 3,4  \\ \hline
+C22 &   4  &   4  & 3,2  \\ \hline
+C23 & 4,3 &   5  & 3,4  \\ \hline
+C24 & 3,7 & 4,3 & 3,4  \\ \hline
+C25 & 4,3 &   5  & 3,5  \\ \hline
+C26 & 4,3 & 4,7 & 4,1  \\ \hline
+\multicolumn{4}{|c|}{Fatores de Taxonomia} \\ \hline
+C31 & 4,3 &  5   & 3,7  \\ \hline
+C33 & 4,7 & 4,7 & 4,4  \\ \hline
+C35 &   4  & 3,7 & 3,4  \\ \hline
+C36 &   3  & 3,3 &   3   \\ \hline
+\end{tabular}
+\caption{Média dos resultados dos questionários sobre os fatores de conceito, relações e taxonomia. O valor mínimo era $1$ e o máximo $5$.}
+\label{tab:resultados-ontometrics}
+\end{table}
+
+\subsubsection*{Observações}
+\begin{itemize}
+  \item O fator C15 (os atributos descrevem de forma precisa os conceitos) não foi considerado pois não existiu um aprendizado de atributos para os conceitos.
+  \item Os fatores C32 e C34 (relação \textit{Not-SubClasse} e partição exaustiva respectivamente), não foram considerados.
+\end{itemize}
+
+%Fechamento

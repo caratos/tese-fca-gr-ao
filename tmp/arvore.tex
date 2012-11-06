@@ -1,0 +1,45 @@
+\documentclass{article}
+
+\usepackage{pstricks,pst-node,pst-tree}
+%\usepackage{anysize} % Soporte para el comando \marginsize
+%\marginsize{0cm}{0cm}{2cm}{2cm}
+\usepackage{graphicx}
+\pagestyle{empty}
+
+%\usepackage[b6paper,landscape]{geometry}
+\usepackage[paperwidth=12cm,paperheight=5cm]{geometry}
+
+\setlength{\marginparwidth}{0cm}
+\marginparwidth=0cm
+\oddsidemargin=0cm
+\hoffset=-2.8cm
+%\voffset=-0.5cm
+\marginparpush=0cm
+
+%\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+
+%opening
+\begin{document}
+\nopagebreak
+\let\cleardoublepage\clearpage
+\pstree[nodesep=1pt,levelsep=5ex]{\TR{S} }
+{
+    \pstree{\TR{NP}}{
+    	\pstree{\TR{NOUN}}{\TR{\scalebox{1.5}{\emph{Branca}}}}
+    }
+    \pstree{\TR{PRE}}{\TR{\scalebox{1.5}{\emph{de}}}}
+    \pstree{\TR{NP}}{
+    	\pstree{\TR{NOUN}}{\TR{\scalebox{1.5}{\emph{Neve}}}}
+    }
+    \pstree{\TR{VERB}}{
+    	\pstree{\TR{VP}}{
+	  \pstree{\TR{VERB}}{\scalebox{1.5}{\emph{\TR{vagou}}}}
+	}
+    }
+    \pstree{\TR{PRE}}{\scalebox{1.5}{\emph{\TR{por}}}}
+    \pstree{\TR{NP}}{
+	\pstree{\TR{DET}}{\scalebox{1.5}{\emph{\TR{a}}}}
+	\pstree{\TR{NOUN}}{\scalebox{1.5}{\emph{\TR{floresta}}}}
+    }
+}
+\end{document}

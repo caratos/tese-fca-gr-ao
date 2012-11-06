@@ -1,0 +1,54 @@
+sa%% ------------------------------------------------------------------------- %%
+\chapter{Conclusões}
+\label{cap:conclusoes}
+
+%------------------------------------------------------
+\section{Considerações Finais} 
+
+\begin{itemize}
+\item A extração de termos no final, não representou um elemento principal
+no trabalho, pois quando queremos ser mais precisos, perdemos muitos
+termos importantes. Por exemplo, é impossível criar uma ontologia de
+métodos ágeis com apenas 10 termos, precisamos de mais.
+
+\item A tese foi tratada de forma multidisciplinar, tocando temas
+  sobre estatística, linguística, grafos e ontologias.
+
+\item De forma similar que no trabalho de \cite{subject-object97}, a
+  imprecisão dos resultados, deve-se por causa das diferentes fontes
+  de erros, por exemplo:
+  \begin{itemize}
+  \item Erros por causa do Cogroo, por exemplo as vezes o adverbo
+    \emph{aí} era identificado como substantivo. Porém, este erro é
+    justificável em certas senteças como por exemplo: 
+  \end{itemize}
+\item Remarcamos o problema de não ter tido ferramentas prontas para a
+  extração de termos, reconhecimentos de relações, etc.
+\item O desafio inicial foi atingido, que era propor uma ferramenta
+  que consiga extrair uma ontologia de um texto mas não de forma
+  automática e soberana, mas sim de forma supervisada e dependente de
+  um especialista. O resultado foi uma ontologia inicial sem
+  instancias que, de forma simples, descreve certas características do
+  domínio analisado.
+\end{itemize}
+%------------------------------------------------------
+\section{Sugestões para Pesquisas Futuras} 
+
+Acreditamos que a descoberta de relações requer uma maior atenção. Os
+recursos linguísticos são muito extensos, existem diferentes
+gramáticas e diferentes formalismos. Um melhor estudo desta informação
+desde um ponto de vista prático seria necesário. Assim como o tema de
+ontologias foi revivido no 2004 a partir de conceitos filosóficos
+muito anteriores à época, acreditamos que a representação de
+conhecimento pode ser muito mais enriquecida se aplicássemos mais a
+teoria linguística.
+
+Também pensamos que uma fonte de informação semântica seria muito
+útil, mas não apenas um dicionário como o Amazonas, se não um
+lexicón. Um lexicón poderia abrir muito mais os caminhos das pesquisas
+relacionadas com a representação de conhecimento.
+
+Finalmente, a tradução do reticulado a uma forma de ontologia não foi
+estudada apropriadamente, ela requer ainda um estudo mais
+profundo. Vimos que com diferentes critérios, podemos criar diferentes
+ontologias.

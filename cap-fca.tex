@@ -1,0 +1,208 @@
+\chapter{Análise de Conceitos Formais}
+\label{cap:fca}
+
+A Análise de Conceitos Formais (ACF) é definida por
+\cite{ganter1999formal} como uma teoria de análise de dados que
+identifica estruturas de conceitos entre conjunto de dados.
+
+Uma vez que definimos um mapeamento entre objetos e atributos, esta
+ferramenta conceitual se torna a forma mais simples de construir uma
+taxonomia usando o reticulado de conceitos.
+
+\paragraph{Contexto Formal}
+Consiste em uma tripla $<O,A,I>$, em que $O$ é um conjunto de objetos,
+$A$ é um conjunto de atributos e $I \subseteq O \times A$ é uma
+relação binária.
+
+\paragraph{Conceito Formal}
+\begin{itemize}
+\item Consiste em uma tupla $<O', A'>$ em que:
+  \begin{itemize}
+  \item $O' \subseteq O$ e é também chamado \textit{extent}
+  \item $A' \subseteq A$ e é também chamado \textit{intent}
+  \end{itemize}
+\item Podem seguir uma ordem parcial respeitando a inclusão de
+  elementos, assim:
+  
+  \begin{tabular}{p{3cm}p{1.2cm}p{5cm}}
+    $<O',A'>$ & $\leq$ & $<O'',A''> \Leftrightarrow O' \subseteq O''$ \\
+    \multicolumn{3}{l}{e de forma equivalente:} \\
+    $<O',A'>$ & $\leq$ & $<O'',A''> \Leftrightarrow A'' \subseteq A'$ \\
+  \end{tabular}
+\end{itemize}
+
+\section{Exemplo do domínio de Turismo}
+
+Este é um exemplo clássico apresentado por \cite{cimiano}, e trata de
+um domínio de viagens turísticas em que  a informação contextual é
+apresentada em uma lista de objetos associados a um determinado verbo,
+tal como pode ser visto na Tabela \ref{tab:turismo-corpus}.
+
+\begin{table}[htbp]
+ \centering
+ \begin{tabular}{|c|l|}  \hline
+  \textbf{verbo} & \textbf{objetos} \\ \hline
+  reservar & hotel, apartamento, carro, bicicleta, excursão, viagem \\ \hline
+  alugar & apartamento, carro, bicicleta  \\ \hline
+  dirigir & carro, bicicleta  \\ \hline
+  montar & bicicleta  \\ \hline
+  acompanhar & excursão, viagem  \\ \hline
+ \end{tabular}
+ \caption{Exemplo de verbos e objetos extraídos de um \textit{corpus} textual
+   sobre o domínio de Viagens Turísticas}
+ \label{tab:turismo-corpus}
+\end{table}
+
+Tais verbos são adjetivados para serem tratados como atributos. Dessa
+forma, é construída uma tabela de associação \emph{objeto-atributo}
+como pode ser visto na Tabela \ref{tab:objetos-caracteristicas}.
+
+\begin{table}[htbp]
+ \centering
+ \begin{tabular}{|l|c|c|c|c|c|} \hline
+   & \textbf{reservável} & \textbf{alugável} & \textbf{dirigível} & \textbf{montável} & \textbf{acompanhável} \\ \hline
+   \textbf{hotel} & X & & & & \\ \hline
+   \textbf{apartamento} & X & X & & & \\ \hline
+   \textbf{carro} & X & X & X & & \\ \hline
+   \textbf{bicicleta} & X & X & X & X & \\ \hline
+   \textbf{excursão} & X & & & & X \\ \hline
+   \textbf{viagem} & X & & & & X \\ \hline
+  \end{tabular}
+ \caption{Domínio de Viagens Turísticas como um contexto formal}
+ \label{tab:objetos-caracteristicas}
+\end{table}
+
+A seguir, aplica-se o algoritmo de \cite{Ganter84} resultando no reticulado de conceitos da Figura \ref{fig:reticulado}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=16cm]{Images/fca.png}
+  \caption{Reticulado de conceitos para o domínio de Viagens Turísticas}
+  \label{fig:reticulado}
+\end{figure}
+
+O reticulado é uma estrutura que descreve uma ordem entre conceitos
+baseada no conjunto de atributos que cada conceito possui. Esta
+estrutura coloca no topo os conceitos mais gerais, ou seja, aqueles
+que possuem a menor quantidade de atributos, e em consequência, os
+conceitos com maior especificação ficarão na parte baixa do
+reticulado. Essa relação pode descrever uma taxonomia.
+
+
+\section{Forma Reduzida do Reticulado}
+No reticulado da Figura \ref{fig:reticulado}, encontramos 
+informação redundante, por exemplo \emph{apartamento} é repetido nos
+nós $<6>$,$<1>$ e $<3>$. \cite{galicia} apresentam uma forma de reduzir o
+reticulado com a ferramenta Galicia \footnote{http://www.iro.umontreal.ca/~galicia/}.
+
+A Figura \ref{fig:reticulado-reducido} mostra a taxonomia sem a informação redundante.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=7cm]{Images/lattice.png}
+  \caption{Taxonomia de conceitos para o domínio de Turismo}
+  \label{fig:reticulado-reducido}
+\end{figure}
+
+
+\section{Aplicação nas Ontologias}
+Como foi bem apontado por \cite{Hitzler011}, os usos de ACF na área de
+ontologias são:
+
+\begin{itemize}
+\item Construção de taxonomias.
+\item Melhoras na ontologia, por exemplo, a exploração de atributos.
+\item Enriquecimento semântico interativo.
+\item Alinhamento e \textit{Merging} de Ontologias.
+\end{itemize}
+
+Alguns trabalhos descrevem o uso da ACF para auxiliar o especialista
+na construção de ontologias. Por exemplo, o trabalho de \cite{peng07}
+descreve uma metodologia incremental, auxiliada pela ACF, para a
+construção de uma ontologia. Essa ontologia foi usada para recuperação
+de componentes de \textit{software}.
+
+Outros trabalhos aproveitam a ordem parcial entre conceitos no
+reticulado para construir uma taxonomia. Tomamos como exemplo o
+trabalho de \cite{cimiano2003automatic}, que descreve os passos para
+realizar o AO a partir de textos usando ACF da seguinte forma:
+
+\begin{itemize}
+\item Realiza-se uma análise sintática do texto para extrair os pares
+  \textit{verbo-objeto}. Os objetos são tratados como os elementos do
+  \emph{extent} e para os verbos adiciona-se o sufixo \emph{-able} a fim
+  de serem tratados como elementos do \emph{intent}.
+
+\item Constrói-se o reticulado de forma reduzida, ou seja, de tal
+  forma que cada objeto ou atributo é nomeado apenas uma vez no diagrama.
+
+\item Para cada conceito formal, cria-se um conceito na ontologia com
+  a etiqueta formada pelos elementos do \emph{intent}. E para cada
+  elemento do \emph{extent} criamos um subconceito de tal conceito
+  novo criado.
+  
+\end{itemize}
+
+
+Outro trabalho interessante é de \cite{Wang:2006}, que propõe o uso de
+SWRL (\emph{Semantic Web Rule Language}) para traduzir o reticulado em forma
+de um conjunto de cláusulas de Horn. Tal trabalho usa uma lógica modal específica para ontologias, como proposto no trabalho de \cite{Haav04asemi-automatic}.
+
+\section{Conceito Superior Comum}
+A ACF também pode ajudar na identificação de um conceito superior
+comum $LCA$ \footnote{LCA - \textit{Lowest Common Ancestor}} entre dois
+conceitos $c_1$ e $c_2$. Tal processo é descrito no Algoritmo
+\ref{alg:fca-lca}, em que a função $ancestorOf(c_1)$ devolve o conjunto
+de elementos superiores a $c_1$ no reticulado, e a função
+$distance(c_1,c_2)$ devolve a quantidade de arcos entre os dois nós.
+
+\begin{algorithm}[ht]
+
+ \begin{algorithmic}
+   \REQUIRE {$c_1, c_2$ $\triangleright$ Conceitos Formais} 
+   \STATE  {$Ld_1 \leftarrow $ EmptyList, $Ld_2 \leftarrow $ EmptyList}
+   \FORALL {$c \in ancestorOf(c_1)$} 
+   \STATE {$t \leftarrow $ $<c,
+     distance(c,c_1)>$} 
+   \STATE {$Ld_1$.Add$(t)$}
+ \ENDFOR
+ \FORALL {$c \in ancestorOf(c_2)$}
+   \STATE {$t \leftarrow $ $<c, distance(c,c_2)>$}
+   \STATE {$d_1 \leftarrow d_2 + t$}
+ \ENDFOR
+ \STATE $minimal\_height \leftarrow \infty$
+ \STATE {$better\_node \leftarrow $ \emph{'Thing'} }
+ \FORALL {$t \in d_1 $}
+   \IF { $\exists s \in d_2$ where $s.node=t.node $ }
+     \STATE $tmp\_max \leftarrow max(s.distance,t.distance)$
+     \IF { $tmp\_max < minimal\_height $}
+       \STATE $minimal\_height \leftarrow tmp\_max$
+       \STATE $better\_node = s.node$
+     \ENDIF
+   \ENDIF
+ \ENDFOR
+
+ \RETURN $better\_node$
+
+ \end{algorithmic}
+ \caption{LCA($c_1$,$c_2$) - Lowest Common Ancestor}
+ \label{alg:fca-lca}
+\end{algorithm}
+
+A estratégia do algoritmo é escolher aquele conceito superior comum
+(LCA) cuja maior distância dos nós inferiores for mínima. Por exemplo,
+na Figura \ref{fig:exemplo-fca-lca}, o LCA entre os nós $<5>$ e $<9>$
+é o nó $<4>$ pois a maior distância dele aos nós filhos é $2$. E não
+pode ser $<2>$ por exemplo, pois a maior distância  deste último aos
+filhos é $3$. \\
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=10cm]{Images/fca-lca.png}
+    \caption{Exemplo de reticulado}
+    \label{fig:exemplo-fca-lca}
+\end{figure}
+
+
+%Fechamento
+Neste capítulo falamos sobre ACF e como poderíamos usar esta técnica no AO.  A partir do próximo capítulo começamos a descrever um sistema de AO e  começamos com a etapa inicial de todo AO: \emph{a extração de termos}.

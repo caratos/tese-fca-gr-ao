@@ -1,0 +1,385 @@
+% Arquivo LaTeX de exemplo de dissertação/tese a ser apresentados à CPG do IME-USP
+% 
+% Versão 4: Sun Feb 20 18:54:26 BRT 2011
+%
+% Criação: Jesús P. Mena-Chalco
+% Revisão: Fabio Kon e Paulo Feofiloff
+%  
+% Obs: Leia previamente o texto do arquivo README.txt
+
+\documentclass[11pt,twoside,a4paper]{book}
+
+% ---------------------------------------------------------------------------- %
+% Pacotes 
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[pdftex]{graphicx}           % usamos arquivos pdf/png como figuras
+\usepackage{setspace}                   % espaçamento flexível
+\usepackage{indentfirst}                % indentação do primeiro parágrafo
+\usepackage{makeidx}                    % índice remissivo
+\usepackage[nottoc]{tocbibind}          % acrescentamos a bibliografia/indice/conteudo no Table of Contents
+\usepackage{courier}                    % usa o Adobe Courier no lugar de Computer Modern Typewriter
+\usepackage{type1cm}                    % fontes realmente escaláveis
+\usepackage{listings}                   % para formatar código-fonte (ex. em Java)
+\usepackage{titletoc}
+
+%%%%%%%% MEUS PACOTES EXTRA %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{caratos}
+\usepackage{qtree}
+\usepackage{multicol}
+\usepackage{lscape}
+\usepackage{rotating}
+%\usepackage{pstricks,pst-node,pst-tree}
+
+% adicionando o pacote algorithmics
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+%% Traducao ao portugues do paquete algorithm
+\floatname{algorithm}{Algoritmo}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Saida:}}
+\renewcommand{\algorithmicend}{\textbf{fim}}
+\renewcommand{\algorithmicif}{\textbf{se}}
+\renewcommand{\algorithmicthen}{\textbf{então}}
+\renewcommand{\algorithmicelse}{\textbf{se nao}}
+\renewcommand{\algorithmicelsif}{\algorithmicelse,\ \algorithmicif}
+\renewcommand{\algorithmicendif}{\algorithmicend\ \algorithmicif}
+\renewcommand{\algorithmicfor}{\textbf{para}}
+\renewcommand{\algorithmicforall}{\textbf{para cada}}
+\renewcommand{\algorithmicdo}{\textbf{fazer}}
+\renewcommand{\algorithmicendfor}{\algorithmicend\ \algorithmicfor}
+\renewcommand{\algorithmicwhile}{\textbf{enquanto}}
+\renewcommand{\algorithmicendwhile}{\algorithmicend\ \algorithmicwhile}
+\renewcommand{\algorithmicloop}{\textbf{repetir}}
+\renewcommand{\algorithmicendloop}{\algorithmicend\ \algorithmicloop}
+\renewcommand{\algorithmicrepeat}{\textbf{repetir}}
+\renewcommand{\algorithmicuntil}{\textbf{ate que}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage[bf,small,compact]{titlesec} % cabeçalhos dos títulos: menores e compactos
+\usepackage[fixlanguage]{babelbib}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+\usepackage[usenames,svgnames,dvipsnames]{xcolor}
+\usepackage[a4paper,top=2.54cm,bottom=2.0cm,left=2.0cm,right=2.54cm]{geometry} % margens
+%\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=black,linkcolor=black,urlcolor=black,filecolor=black,bookmarksopen=true]{hyperref} % links em preto
+\usepackage[pdftex,plainpages=false,pdfpagelabels,pagebackref,colorlinks=true,citecolor=DarkGreen,linkcolor=NavyBlue,urlcolor=DarkRed,filecolor=green,bookmarksopen=true]{hyperref} % links coloridos
+\usepackage[all]{hypcap}                    % soluciona o problema com o hyperref e capitulos
+\usepackage[round,sort,nonamebreak]{natbib} % citação bibliográfica textual(plainnat-ime.bst)
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+
+% ---------------------------------------------------------------------------- %
+% Cabeçalhos similares ao TAOCP de Donald E. Knuth
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\MakeUppercase{#1}}{}}
+\renewcommand{\headrulewidth}{0pt}
+
+% ---------------------------------------------------------------------------- %
+\graphicspath{{./figuras/}}             % caminho das figuras (recomendável)
+\frenchspacing                          % arruma o espaço: id est (i.e.) e exempli gratia (e.g.) 
+\urlstyle{same}                         % URL com o mesmo estilo do texto e não mono-spaced
+\makeindex                              % para o índice remissivo
+\raggedbottom                           % para não permitir espaços extra no texto
+\fontsize{60}{62}\usefont{OT1}{cmr}{m}{n}{\selectfont}
+\cleardoublepage
+\normalsize
+
+% ---------------------------------------------------------------------------- %
+% Opções de listing usados para o código fonte
+% Ref: http://en.wikibooks.org/wiki/LaTeX/Packages/Listings
+\lstset{ %
+language=Java,                  % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it's 1 each line will be numbered
+numbersep=5pt,                  % how far the line-numbers are from the code
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,	                % adds a frame around the code
+framerule=0.6pt,
+tabsize=2,	                    % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+escapeinside={\%*}{*)},         % if you want to add a comment within your code
+backgroundcolor=\color[rgb]{1.0,1.0,1.0}, % choose the background color.
+rulecolor=\color[rgb]{0.8,0.8,0.8},
+extendedchars=true,
+xleftmargin=10pt,
+xrightmargin=10pt,
+framexleftmargin=10pt,
+framexrightmargin=10pt
+}
+
+% ---------------------------------------------------------------------------- %
+% Corpo do texto
+\begin{document}
+\frontmatter 
+% cabeçalho para as páginas das seções anteriores ao capítulo 1 (frontmatter)
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+\setcounter{tocdepth}{2}
+\fancyhead[LE]{\thepage\hspace{2em}\footnotesize{\leftmark}}
+\fancyhead[RE,LO]{}
+\fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+
+\onehalfspacing  % espaçamento
+
+% ---------------------------------------------------------------------------- %
+% Capa
+% Nota: O título para as teses/dissertações do IME-USP devem caber em um 
+% orifício de 10,7cm de largura x 6,0cm de altura que há na capa fornecida pela SPG.
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{2.3cm}
+  \textbf{\Large{Uso de informação linguística \\
+      e análise de conceitos formais\\
+      no aprendizado de ontologias}}\\
+    
+    \vspace*{1.2cm}
+    \Large{Carlos Eduardo Atencio  Torres}
+    
+    \vskip 2cm \textsc{
+      Dissertação apresentada\\[-0.25cm]
+      ao\\[-0.25cm]
+      Instituto de Matemática e Estatística\\[-0.25cm]
+      da\\[-0.25cm]
+      Universidade de São Paulo\\[-0.25cm]
+      para\\[-0.25cm]
+      obtenção do título\\[-0.25cm]
+      de\\[-0.25cm]
+      Mestre em Ciências}
+    
+    \vskip 1.5cm
+    Programa: Ciência da Computação\\
+    Orientador: Prof. Dra. Renata Wassermann
+
+   	\vskip 1cm
+    \normalsize{Durante o desenvolvimento deste trabalho o autor recebeu auxílio
+    financeiro da CAPES}
+    
+    \vskip 0.5cm
+    \normalsize{São Paulo, Setembro de 2012}
+\end{center}
+
+% ---------------------------------------------------------------------------- %
+% Página de rosto (SÓ PARA A VERSÃO DEPOSITADA - ANTES DA DEFESA)
+% Resolução CoPGr 5890 (20/12/2010)
+%
+% Nota: O título para as teses/dissertações do IME-USP devem caber em um 
+% orifício de 10,7cm de largura x 6,0cm de altura que há na capa fornecida pela SPG.
+\newpage
+\thispagestyle{empty}
+    \begin{center}
+        \vspace*{2.3 cm}
+        \textbf{\Large{Uso de informação linguística \\
+      e análise de conceitos formais\\
+      no aprendizado de ontologias}}\\
+        \vspace*{2 cm}
+    \end{center}
+
+    \vskip 2cm
+    
+	\begin{flushright}
+	Esta é a versão original da dissertação elaborada pelo\\
+	candidato Carlos Eduardo Atencio Torres, tal como \\
+	submetida à Comissão Julgadora.
+    \end{flushright}
+    
+
+\pagebreak
+
+
+% ---------------------------------------------------------------------------- %
+% Página de rosto (SÓ PARA A VERSÃO CORRIGIDA - APÓS DEFESA)
+% Resolução CoPGr 5890 (20/12/2010)
+%
+% Nota: O título para as teses/dissertações do IME-USP devem caber em um 
+% orifício de 10,7cm de largura x 6,0cm de altura que há na capa fornecida pela SPG.
+%\newpage
+%\thispagestyle{empty}
+%    \begin{center}
+%        \vspace*{2.3 cm}
+%        \textbf{\Large{Título do trabalho a ser apresentado à \\
+%        CPG para a dissertação/tese}}\\
+%        \vspace*{2 cm}
+%    \end{center}
+%
+%    \vskip 2cm
+
+%    \begin{flushright}
+%	Esta tese/dissertação contém as correções e	alterações\\
+%	sugeridas pela Comissão Julgadora durante a defesa\\
+%	realizada por (Nome Completo do Aluno) em 14/12/2010.\\
+%	O original encontra-se disponível no Instituto de\\ 
+%	Matemática e Estatística da Universidade de São Paulo.
+
+%    \vskip 2cm
+
+%    \end{flushright}
+%    \vskip 4.2cm
+
+%    \begin{quote}
+%    \noindent Comissão Julgadora:
+    
+%    \begin{itemize}
+%		\item Profa. Dra. Nome Completo (orientadora) - IME-USP [sem ponto final]
+%		\item Prof. Dr. Nome Completo - IME-USP [sem ponto final]
+%		\item Prof. Dr. Nome Completo - IMPA [sem ponto final]
+%    \end{itemize}
+      
+%    \end{quote}
+%\pagebreak
+
+
+\pagenumbering{roman}     % começamos a numerar 
+
+% ---------------------------------------------------------------------------- %
+% Agradecimentos
+%\chapter*{Agradecimentos}
+%Agradecimentos ...
+
+% ---------------------------------------------------------------------------- %
+% Resumo
+\chapter*{Resumo}
+\noindent TORRES, C. E. A. \textbf{Uso de informação linguística e análise de conceitos formais no aprendizado de ontologias}. 
+2012. 81 f.
+Dissertação (Mestrado) - Instituto de Matemática e Estatística,
+Universidade de São Paulo, São Paulo, 2012.
+\\
+
+Na atualidade, o interesse pelo uso de ontologias tem sido incrementado. No entanto, o processo de construção pode ser custoso em termos de tempo. Para uma ontologia ser construída, precisa-se de um especialista com conhecimentos de um editor de ontologias. Com a finalidade de reduzir tal processo de construção pelo especialista, analisamos e propomos um método para realizar aprendizado de ontologias (AL) de forma supervisionada.
+
+O presente trabalho consiste em uma abordagem combinada de diferentes técnicas no AO. Primeiro, usamos uma técnica estatística chamada C/NC-\textit{values}, acompanhada da ferramenta Cogroo, para extrair os termos mais representativos do texto. Esses termos são considerados por sua vez como conceitos. Projetamos também uma gramática de restrições (GR) , com base na informação linguística do Português, com o objetivo de reconhecer e estabelecer relações entre conceitos. Para poder enriquecer a informação na ontologia, usamos a análise de conceitos formais (ACF) com o objetivo de identificar possíveis superconceitos entre dois conceitos. Finalmente, extraímos ontologias para os textos de três temas, submetendo-as à avaliação dos especialistas na área. Um \textit{web site} foi feito para tornar o processo de avaliação mais amigável para os avaliadores e usamos o questionário de marcos de características proposto pelo método \textit{OntoMetrics}. Os resultados mostram que nosso método retornou ontologias aceitavelmente idôneas para representar os respectivos temas.
+
+\noindent \textbf{Palavras-chave:} Aprendizado de Ontologias,
+Extração de Termos, Descoberta de Relações, Análise Sintática, Gramática de Restrições, Análise de Conceitos Formais, Avaliação de Ontologias.
+
+% ---------------------------------------------------------------------------- %
+% Abstract
+\chapter*{Abstract}
+\noindent  TORRES, C. E. A. \textbf{Use of linguistic information and formal concept analysis for ontology learning}. 
+2012. 81 f.
+Dissertação (Mestrado) - Instituto de Matemática e Estatística,
+Universidade de São Paulo, São Paulo, 2012.
+\\
+
+Nowadays, the interest in the use of ontologies has been increased, nevertheless, the process of construction can be very costly in time. To construct an ontology, we need an expert with knowledge in an ontology editor. In order to reduce such process by the expert, we analyse and propose a supervised ontology learning (OL) method.
+The present work consist in a combined approach of different techniques in OL. First we use a statistic technique called C/NC-\textit{values}, with the help of the Cogroo tool, to extract the most significant terms. These terms are considered as concepts consequently. We also design a constraint grammar (CG) based in linguistic information of Portuguese to recognize relations between concepts. To enrich the ontology information, we use the formal concept analysis (FCA) in order to discover a parent for a set of concepts. Finally, we extract ontologies from text of three areas and we tested them with their experts.  A web site was done to make the evaluation process more friendly for the experts and we use a framework of characteristics proposed in the OntoMetrics method. The results show that our method returned enough suitable ontologies to represent the evaluated themes.
+
+\noindent \textbf{Keywords:} Ontology Learning,
+Term Extraction, Relation Discovery, Syntactic Analysis, Constraint Grammar, Formal Concept Analysis, Ontology Evaluation.
+
+% ---------------------------------------------------------------------------- %
+% Sumário
+\tableofcontents    % imprime o sumário
+
+% ---------------------------------------------------------------------------- %
+\chapter{Lista de Abreviaturas}
+\begin{tabular}{ll}
+      AO      & Aprendizado de Ontologias (\emph{Ontology Learning})\\
+      ACE    & \textit{Attempto Controlled English} \\
+     ACF     & Análise de Conceitos Formais (\emph{Formal Concept
+      Analysis})\\
+      CMS   & \textit{Content Management System} \\
+      DL     & \textit{Description Logic} \\
+      EMP     & Expressão Multi-Palavras \\
+      GR      & Gramática Restritiva (\emph{Constraint Grammar})\\
+      HNSCC  &  \textit{Head and Neck Squamous Cell Carcinoma} \\
+      INCA  & Instituto Nacional do Câncer  \\
+      LCA   & \textit{Lowest Common Ancestor} \\
+      SF    &  Sintagma Flexional  \\
+      SN      & Sintagma Nominal \\
+      SP      & Sintagma Preposicional \\
+      SV      & Sujeito-Verbo \\
+      SVO     & Sujeito-Verbo-Objeto \\
+      SUB     & Subjeito \\
+      OS      & Oração Subordinada \\
+      OSS     & Oração Subordinada Substantiva \\
+      OSSS    & Oração Subordinada Substantiva Subjetiva \\
+      OSSOD   & Oração Subordinada Substantiva Objetiva Direta \\
+      OSSOI   & Oração Subordinada Substantiva Objetiva Indireta \\
+      OSSP    & Oração Subordinada Substantiva Predicativa \\
+      OSSA    & Oração Subordinada Substantiva Apostiva \\
+      OSSCN   & Oração Subordinada Substantiva  Completiva Nominal \\
+      OSA     & Oração Subordinada Adjetiva \\
+      OWL     & \textit{Ontology Web Language} \\
+      W3C   &  \textit{World Wide Web Consortium} \\
+      XCES   &   \textit{XML-based Encoding Standard for Linguistic Corpora}
+\end{tabular}
+
+%% ---------------------------------------------------------------------------- %
+\chapter{Lista de Símbolos}
+\begin{tabular}{ll}
+$\mathcal{AL}$& Linguagem de atributos (\emph{Attribute Language})\\
+$\mathcal{I}$ & Interpretação \\
+$\mathcal{U}$ & Operador de Disjunção \\
+$\mathcal{C}$ & Operador de Negação \\
+$\mathcal{E}$ & Operador Existencial \\
+$\forall$ & Operador lógico para todo \\
+$\mathcal{N}$ & Restrição numérica \\
+$\mathcal{Q}$ & Restrição numérica qualificada \\
+$\mathcal{O}$ & Operador de enumeração \\
+$\mathcal{F}$ & Operador de seleção \\
+\end{tabular}
+
+% ---------------------------------------------------------------------------- %
+% Listas de figuras e tabelas criadas automaticamente
+\listoffigures            
+\listoftables            
+
+% ---------------------------------------------------------------------------- %
+% Capítulos do trabalho
+\mainmatter
+
+% cabeçalho para as páginas de todos os capítulos
+\fancyhead[RE,LO]{\thesection}
+
+\singlespacing              % espaçamento simples
+%\onehalfspacing            % espaçamento um e meio
+
+\input cap-introducao
+\input cap-ao        
+\input cap-fca
+\input cap-termos
+\input cap-relacoes
+\input cap-linguistica
+\input cap-experimentos
+\input cap-avaliacao
+\input cap-conclusoes
+
+% cabeçalho para os apêndices
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{\appendixname\ \thechapter}} {\MakeUppercase{#1}} }
+\fancyhead[RE,LO]{}
+\appendix
+
+\include{ape-stop-words}
+\include{ape-aontoweb}
+\include{ape-questionario}
+\include{ape-ontologia}
+
+% ---------------------------------------------------------------------------- %
+% Bibliografia
+\backmatter \singlespacing   % espaçamento simples
+\bibliographystyle{plainnat-ime} % citação bibliográfica textual
+\bibliography{bibliografia}  % associado ao arquivo: 'bibliografia.bib'
+
+% ---------------------------------------------------------------------------- %
+% Índice remissivo
+%\index{TBP|see{periodicidade região codificante}}
+%\index{DSP|see{processamento digital de sinais}}
+%\index{STFT|see{transformada de Fourier de tempo reduzido}}
+%\index{DFT|see{transformada discreta de Fourier}}
+%\index{Fourier!transformada|see{transformada de Fourier}}
+
+%\printindex   % imprime o índice remissivo no documento 
+
+\end{document}

@@ -1,0 +1,65 @@
+\BOOKMARK [0][]{chapter*.4}{Lista de Abreviaturas}{}% 1
+\BOOKMARK [0][]{chapter*.5}{Lista de S\355mbolos}{}% 2
+\BOOKMARK [0][]{chapter*.6}{Lista de Figuras}{}% 3
+\BOOKMARK [0][]{chapter*.7}{Lista de Tabelas}{}% 4
+\BOOKMARK [0][]{chapter.1}{Introdu\347\343o}{}% 5
+\BOOKMARK [0][]{chapter.2}{Aprendizado de Ontologias}{}% 6
+\BOOKMARK [1][]{section.2.1}{Ontologias}{chapter.2}% 7
+\BOOKMARK [2][]{subsection.2.1.1}{Defini\347\343o de Ontologias}{section.2.1}% 8
+\BOOKMARK [2][]{subsection.2.1.2}{Tipos de ontologia}{section.2.1}% 9
+\BOOKMARK [2][]{subsection.2.1.3}{L\363gicas de Descri\347\343o}{section.2.1}% 10
+\BOOKMARK [2][]{subsection.2.1.4}{Racioc\355nio}{section.2.1}% 11
+\BOOKMARK [1][]{section.2.2}{Aprendizado de Ontologias}{chapter.2}% 12
+\BOOKMARK [2][]{subsection.2.2.1}{Modelo de Camadas de Phillip Cimiano}{section.2.2}% 13
+\BOOKMARK [2][]{subsection.2.2.2}{Text2Onto}{section.2.2}% 14
+\BOOKMARK [2][]{subsection.2.2.3}{Gram\341tica Restritiva \(GR\)}{section.2.2}% 15
+\BOOKMARK [2][]{subsection.2.2.4}{OntoLP}{section.2.2}% 16
+\BOOKMARK [0][]{chapter.3}{An\341lise de Conceitos Formais}{}% 17
+\BOOKMARK [1][]{section.3.1}{Exemplo do dom\355nio de Turismo}{chapter.3}% 18
+\BOOKMARK [1][]{section.3.2}{Forma Reduzida do Reticulado}{chapter.3}% 19
+\BOOKMARK [1][]{section.3.3}{Aplica\347\343o nas Ontologias}{chapter.3}% 20
+\BOOKMARK [1][]{section.3.4}{Conceito Superior Comum}{chapter.3}% 21
+\BOOKMARK [0][]{chapter.4}{Extra\347\343o de Termos}{}% 22
+\BOOKMARK [1][]{section.4.1}{M\351todos para extra\347\343o de termos}{chapter.4}% 23
+\BOOKMARK [1][]{section.4.2}{Ferramentas para a extra\347\343o de termos}{chapter.4}% 24
+\BOOKMARK [1][]{section.4.3}{Reconhecimento de sintagmas nominais e preposicionais}{chapter.4}% 25
+\BOOKMARK [1][]{section.4.4}{Extra\347\343o de candidatos a termos com a m\351trica C-value/NC-value}{chapter.4}% 26
+\BOOKMARK [2][]{subsection.4.4.1}{Calculando os C-values}{section.4.4}% 27
+\BOOKMARK [2][]{subsection.4.4.2}{Calculando os NC-values}{section.4.4}% 28
+\BOOKMARK [0][]{chapter.5}{Descoberta de Rela\347\365es}{}% 29
+\BOOKMARK [1][]{section.5.1}{Descoberta de Rela\347\365es Taxon\364micas}{chapter.5}% 30
+\BOOKMARK [2][]{subsection.5.1.1}{Baseado em Similaridade}{section.5.1}% 31
+\BOOKMARK [2][]{subsection.5.1.2}{Teoria de Conjuntos}{section.5.1}% 32
+\BOOKMARK [2][]{subsection.5.1.3}{Clustering}{section.5.1}% 33
+\BOOKMARK [1][]{section.5.2}{Descoberta de Rela\347\365es N\343o Taxon\364micas}{chapter.5}% 34
+\BOOKMARK [1][]{section.5.3}{Gram\341tica de Restri\347\365es}{chapter.5}% 35
+\BOOKMARK [0][]{chapter.6}{An\341lise Sint\341tica}{}% 36
+\BOOKMARK [1][]{section.6.1}{Sintaxe}{chapter.6}% 37
+\BOOKMARK [2][]{subsection.6.1.1}{Ora\347\343o}{section.6.1}% 38
+\BOOKMARK [2][]{subsection.6.1.2}{Sujeito}{section.6.1}% 39
+\BOOKMARK [2][]{subsection.6.1.3}{Predicado}{section.6.1}% 40
+\BOOKMARK [1][]{section.6.2}{Ora\347\365es Complexas}{chapter.6}% 41
+\BOOKMARK [2][]{subsection.6.2.1}{Ora\347\365es subordinadas}{section.6.2}% 42
+\BOOKMARK [2][]{subsection.6.2.2}{Ora\347\365es coordenadas}{section.6.2}% 43
+\BOOKMARK [1][]{section.6.3}{Gram\341tica Gerativa}{chapter.6}% 44
+\BOOKMARK [2][]{subsection.6.3.1}{An\341lise de Constituintes}{section.6.3}% 45
+\BOOKMARK [0][]{chapter.7}{Experimentos e Resultados}{}% 46
+\BOOKMARK [1][]{section.7.1}{Descri\347\343o dos textos}{chapter.7}% 47
+\BOOKMARK [1][]{section.7.2}{Procedimentos}{chapter.7}% 48
+\BOOKMARK [2][]{subsection.7.2.1}{Extra\347\343o de Termos}{section.7.2}% 49
+\BOOKMARK [2][]{subsection.7.2.2}{Descoberta de Rela\347\365es}{section.7.2}% 50
+\BOOKMARK [2][]{subsection.7.2.3}{An\341lise de Conceitos Formais}{section.7.2}% 51
+\BOOKMARK [2][]{subsection.7.2.4}{Experimentando o uso da ACF}{section.7.2}% 52
+\BOOKMARK [0][]{chapter.8}{Avalia\347\343o de Ontologias}{}% 53
+\BOOKMARK [1][]{section.8.1}{Introdu\347\343o}{chapter.8}% 54
+\BOOKMARK [1][]{section.8.2}{OntoMetric}{chapter.8}% 55
+\BOOKMARK [1][]{section.8.3}{Avalia\347\343o com OntoMetrics}{chapter.8}% 56
+\BOOKMARK [0][]{chapter.9}{Conclus\365es}{}% 57
+\BOOKMARK [1][]{section.9.1}{Discuss\365es}{chapter.9}% 58
+\BOOKMARK [1][]{section.9.2}{Considera\347\365es Finais}{chapter.9}% 59
+\BOOKMARK [1][]{section.9.3}{Sugest\365es para Pesquisas Futuras}{chapter.9}% 60
+\BOOKMARK [0][]{appendix.A}{Lista de Stop-Words}{}% 61
+\BOOKMARK [0][]{appendix.B}{AOntoWEB}{}% 62
+\BOOKMARK [0][]{appendix.C}{Question\341rio sobre o Marco de Caracter\355sticas da Dimens\343o Conte\372do da Ontologia}{}% 63
+\BOOKMARK [0][]{appendix.D}{Ontologia de Branca de Neve}{}% 64
+\BOOKMARK [0][]{appendix*.55}{Refer\352ncias Bibliogr\341ficas}{}% 65

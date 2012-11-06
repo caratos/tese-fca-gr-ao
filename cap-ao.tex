@@ -1,0 +1,304 @@
+\chapter{Aprendizado de Ontologias}
+\label{cap:ao}
+
+Neste capítulo, revisaremos de forma geral os temas de ontologias, lógicas descritivas e aprendizado de ontologias (AO).
+
+\section{Ontologias}
+\subsection{Definição de Ontologias}
+De acordo com \cite{Gruber93}, \textit{uma ontologia é a especificação de uma conceitualização compartilhada}. De forma prática,
+\cite{Kostial03i.:ontology-based} indicou que \textit{o uso de uma ontologia permite definir conceitos e relações representando conhecimento a respeito de um documento, em particular em um domínio específico de termos}.
+
+O desenvolvimento de uma ontologia geralmente está sob a responsabilidade de um especialista com conhecimentos de um editor de ontologias. Tal processo segue um conjunto de boas práticas que vemos por exemplo  em \cite{Noy2001,riichiro03}.
+
+Uma ontologia possui os seguintes elementos:
+\begin{enumerate}
+ \item \textbf{Classes}, também chamadas de conceitos;
+ \item \textbf{Propriedades}, também chamadas \textit{papéis} em
+   lógica de descrição; e
+ \item \textbf{Indivíduos} que são instâncias de classes definidas.
+\end{enumerate}
+
+\subsection{Tipos de ontologia}
+De acordo com \cite{riichiro03}, os tipos de ontologia, segundo a
+riqueza semântica, podem ser:
+\begin{enumerate}
+\item \textbf{Ontologias pesadas:} São desenvolvidas prestando-se muita atenção ao significado de cada conceito, assim como à ordem das relações. Dessa maneira, busca-se garantir a consistência e fidelidade do modelo. 
+
+\item \textbf{Ontologias leves:} São hierarquias de conceitos sem definições extensas. Elas melhoram as consultas, porém tornam-se dependentes do contexto. 
+\end{enumerate}
+
+Em 2004, o W3C recomendou OWL (\textit{Web Ontology Language}) como linguagem para descrição de ontologias. OWL começou com três sublinguagens:
+
+\begin{description}
+\item[\emph{OWL-Lite}:] atende aqueles usuários que necessitam principalmente de uma classificação hierárquica e restrições simples. Permite um caminho de migração mais rápido de tesauros e outras taxonomias.
+
+\item[\emph{OWL-DL}:] atende aqueles usuários que desejam a máxima expressividade, enquanto mantém a computabilidade e decibilidade, ou seja, garante-se que todas as conclusões sejam computáveis em tempo finito.
+
+\item[\emph{OWL-Full}:] é direcionada àqueles usuários que querem a máxima expressividade e a liberdade sintática do RDF sem garantir a decidibilidade computacional.
+\end{description}
+
+A partir de 2009, o W3C recomendou OWL 2 como linguagem padrão para expressar ontologias. OWL 2 substitui o antigo padrão recomendado em 2004 adicionando mais características. Este novo padrão introduz o conceito de perfil que é um fragmento de OWL 2 para negociar o poder expressivo pela eficiência de raciocínio. Existem três perfis:
+
+\begin{description}
+\item[\emph{OWL 2 EL}:] fornece algoritmos de tempo polinomial para todas as tarefas padrão de raciocínio; é particularmente útil em aplicações empregando ontologias que contêm um grande número de propriedades e/ou classes. A sigla  \emph{EL} reflete a base do
+  perfil de família de lógicas de descrição $\mathcal{EL}$
+  (quantificação existencial).
+  
+\item[\emph{OWL 2 QL}:] destina-se a aplicações que utilizam grandes volumes de instâncias de dados e nas quais a tarefa mais importante é devolver resultados para as consultas. A sigla  \textit{QL} reflete o fato que pergunta-resposta nesse perfil pode ser implementada reescrevendo perguntas em uma linguagem de consulta relacional padrão.
+  
+\item[\emph{OWL 2 RL}:] é destinada a aplicações que requerem raciocínio escalável sem sacrificar em excesso o poder expressivo. Sistemas de raciocínio OWL 2 \textit{RL} podem ser implementados usando-se mecanismo de raciocínio baseado em regras. A sigla \textit{RL} reflete o fato que o raciocínio, neste perfil, pode ser implementado usando-se uma linguagem de regras padrão.
+\end{description}
+
+\subsection{Lógicas de Descrição}
+\cite{baader04} indicaram que as lógicas de descrição são uma família de linguagens de representação de conhecimento, podendo representar o conhecimento de um domínio de maneira formal e estruturada.
+
+Cada lógica se diferencia entre si pelos construtores que possui, formando diferentes combinações a partir do $\mathcal{AL}$  
+\footnote{linguagem de atributos, em inglês \textit{attribute
+    language}} de diversas extensões. A Tabela \ref{tab:alc-extensoes}
+apresenta as definições sintáticas e semânticas de diferentes construtores, respeitando a notação:
+
+\begin{itemize}
+  \item \textbf{A,C,D}: são nomes de conceitos.
+  \item \textbf{R}: relação.
+  \item \textbf{$\mathcal{I}$}: ou interpretação, é um par
+    $<\Delta^\mathcal{I}, \cdot^\mathcal{I}>$, em que :
+      \begin{itemize}
+        \item $\Delta^\mathcal{I}$ é o universo.
+        \item $\cdot^\mathcal{I}$ é uma função de mapeamento de:
+          \begin{itemize}
+          \item Conceitos para subconjuntos de $\Delta^\mathcal{I}$, e
+            \item Papéis para subconjuntos de
+              $\Delta^\mathcal{I}\times\Delta^\mathcal{I}$.
+          \end{itemize}
+      \end{itemize}
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|l|c|l|}
+  \hline
+  \textbf{Construtor} & \textbf{Sintaxe} & \textbf{Semântica} \\ \hline
+  % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  Nome de Conceito & A & $A^\mathcal{I} \subseteq \Delta^\mathcal{I} $ \\ \hline
+  \textit{Top} & $\top$ & $\Delta^\mathcal{I}$ \\ \hline
+  \textit{Bottom} & $\bot$ & $0$ \\ \hline
+  Conjunção & $C \sqcap D$ & $C^\mathcal{I} $ \\ \hline
+  Disjunção ($\mathcal{U}$)&$C \sqcup D$ & $C^\mathcal{I} \cup D^\mathcal{D}$ \\ \hline
+  Negação ($\mathcal{C}$)& $\neg C$ & $\Delta^\mathcal{I} \backslash C^\mathcal{I}$ \\ \hline
+  Universal & $\forall R.C$ & $\{x|\forall y : R^\mathcal{I}(x,y) \rightarrow C^\mathcal{I}(y)\}$ \\ \hline
+  Existencial ($\mathcal{E}$)& $\exists R.C$ & $\{x|\exists y : R^\mathcal{I}(x,y) C^\mathcal{I}(y)\}$ \\ \hline
+  Restrição numérica ($\mathcal{N}$) & $\geq n.R$ & $\{x|\sharp\{y|R^\mathcal{I}(x,y) \geq n\}\}$ \\ \hline
+  Restrição numérica qualificada ($\mathcal{Q}$)& $\geq n.R.C$ & $\{x|\sharp\{y|R^\mathcal{I}(x,y) \wedge C^\mathcal{I}(y)\}\}$ \\ \hline
+  Enumeração ($\mathcal{O}$)& $\{a_1, ... a_n\}$ & $\{{a_1}^\mathcal{I},...,{a_n}^\mathcal{I}\}$ \\ \hline
+  Seleção $\mathcal{F} $& $f:C$ & $\{x \in Dom(f^\mathcal{I})|C^\mathcal{I}(f^\mathcal{I}(x))\}$ \\ \hline
+\end{tabular}
+\caption{Alguns construtores que formam famílias de lógicas de descrição de $\mathcal{ALC}$ }
+ \label{tab:alc-extensoes}
+\end{table}
+
+\subsection{Raciocínio}
+Um mecanismo de inferência OWL é um mecanismo capaz de provar a consistência de uma ontologia e/ou inferir consequências lógicas a partir do conjunto de axiomas que a ontologia possui.
+
+O trabalho do mecanismo de inferência consiste em:
+\begin{itemize}
+\item Encontrar relações de subordinação entre dois conceitos, por exemplo,
+  $C \sqsubseteq D $ quer dizer que as interpretações de $C$ estão
+  contidas em $D$, ou seja, $C^\mathcal{I} \subseteq D^\mathcal{I}$.
+  \item Encontrar equivalência de conceitos ($C \equiv D$).
+  \item Verificar se a ontologia é consistente.
+\end{itemize}
+
+Na Tabela \ref{tab:reasoners}, foi comparado um conjunto de mecanismos,  respeitando-se os seguintes critérios:
+
+\begin{description}
+\item[Lógicas de Descrição : ] A fim de evitar nomes extensos para lógicas
+  de descrição, a abreviação $\mathcal{S}$ é usada para se referir a
+  $\mathcal{ALC}_{R^+}$ (estende $\mathcal{ALC}$ com papéis
+  transitivos). Membros de $\mathcal{S}$ são $\mathcal{SHIF}$ (estende
+  $\mathcal{ALC}_{R^+}$ com papéis hierárquicos, papéis inversos e
+  número de restrições da forma $\leq 1 R$), $\mathcal{SHIQ}$ (estende
+  $\mathcal{ALC}_{R^+}$ com papéis hierárquicos, papéis inversos e
+  número de restrições avaliado) e outros que podem ser formados com
+  ajuda da Tabela \ref{tab:alc-extensoes}.
+  
+  \item[Algoritmo de Raciocínio : ] Algoritmos como Resolução, Tableaux,
+    RETE (descrito em \cite{Forgy82aij})  e Datalog.
+    
+  \item[Verificação de Consistência : ] Verifica se a ontologia apresenta
+    inconsistências.
+    
+  \item[Suporte de Regras : ] SWRL (\emph{Semantic Web Rule Language}) é
+    uma proposta para combinar as sublinguagens de OWL (OWL DL e Lite)
+    com um conjunto de regras especificadas em RuleML (\emph{Rule
+      Markup Language} - Linguagem de marcação de regras).
+      
+  \item[Linguagem : ] Em que linguagem de programação foi feito.
+\end{description}
+
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|p{2cm}|p{1.7cm}|p{1.7cm}|p{2.3cm}|p{2.2cm}|p{1.7cm}|p{2cm}|} \hline
+    & \textbf{Pellet} & \textbf{Kaon2} & \textbf{RacerPro} &
+    \textbf{Jena} & \textbf{FaCT++} & \textbf{HermiT} \\ \hline
+    \textbf{Lógica de Descrição} & SROIQ(D) & SHIQ(D) & SHIQ(D-) &
+    Subconjunto de SHIN(D) & SROIQ(D) & SHOIQ+ \\ \hline
+    \textbf{Algoritmo} & Tableau & Resolução e Datalog & Tableau &
+    Basado em Regras & Tableau & Hipertableau \\ \hline
+    \textbf{Verificação de Consistência} & Sim & - & Sim & Incompleto
+    para OWL DL & Sim & Sim \\ \hline
+    \textbf{Suporte de Regras} & Sim (SWRL) & Sim (SWRL) & Sim (SWR -
+    não totalmente suportado) e regras próprias & Sim (Regras próprias)
+    & Não & Sim (SWRL-DL)\\ \hline
+    \textbf{Linguagem} & Java & Java & Java, Lisp & Java & C++ & Java\\ \hline
+  \end{tabular}
+  \caption{Comparação de Mecanismos de Inferência (Fonte: Wikipedia)}
+  \label{tab:reasoners}
+\end{table}
+
+O mercado oferece diferentes mecanismos de inferência que podem ser usados junto
+ao editor Protégé de ontologias, por exemplo o Pellet
+\footnote{\url{http://clarkparsia.com/pellet}}, que é um mecanismo de código aberto,
+prático e usado em sistemas que trabalham com \emph{OWL 2 DL}. Ele é
+completo e aceita OWL-DL, além disso, possui um desempenho similar
+aos dos outros mecanismos de inferência como o FACT++ ou o RacerPRO (\cite{pellet}).
+
+A OWL API  \footnote{\url{http://owlapi.sourceforge.net/}} é uma API escrita em
+Java para manipular e criar ontologias. A última versão desta API foi
+projetada para trabalhar com OWL 2 .
+
+O mecanismo de inferência mais atual é o HermiT que usa o  algoritmo  de \emph{hypertableau}. Segundo \cite{smh08HermiT}, HermiT possui uma maior rapidez com respeito aos seus antagonistas: FACT++ e Pellet. 
+
+HermiT é compatível  com OWL API a partir da versão $3.1.0$.
+
+\section{Aprendizado de Ontologias}
+
+O termo \textit{Aprendizado de Ontologias} (AO)  foi originalmente
+usado por \cite{ol-semantic-web} e foi descrito como a aquisição de um
+modelo de domínio a partir de uma fonte de dados. Segundo
+\cite{survey-ol}, os tipos de fontes de dados podem ser:
+
+\begin{description}
+\item[Dados estruturados : ] por exemplo os arquivos \texttt{XML};
+\item[Dados semiestruturados : ] como alguns arquivos; e
+  \texttt{HTML} que possuem conteúdo semântico (tags no cabeçalho).
+\item[Dados não estruturados : ] geralmente a maior parte da informação
+  vem deste tipo de dados, e é o que chamamos de texto sem formatação.
+\end{description}
+
+Esta categorização se aplica de forma similar aos tipos de AO,
+existindo AO para dados estruturados, semiestruturados e
+nãoestruturados.
+
+De acordo com \cite{metric-ontology},  o AO é definido também como um problema de otimização em que se tenta minimizar as mudanças que se fazem a uma ontologia parcial no processo de adicionar novos conceitos.
+
+Os métodos atuais apostam no aprendizado semiautomático, mesmo no trabalho  de \cite{fully-automatic} que, embora proponha um método
+completamente automático no título, usa padrões (que o usuário insere
+previamente) para identificar construções léxico-sintáticas, e
+finalmente padrões morfológicos para construir a ontologia.
+
+\subsection{Modelo de Camadas de Phillip Cimiano}
+A metodologia de \cite{cimiano} é usada como padrão no
+AO. Consiste em um conjunto de camadas (ver Figura \ref{fig:bolo} )
+em que primeiramente extraímos os termos de um texto, depois realizamos
+o aprendizado de conceitos, de relações e finalmente na parte superior
+da pilha, o aprendizado de axiomas.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=8cm]{Images/bolo.png}
+  \caption{Conjunto de Camadas para AO de acordo com a metodologia de
+    Philipp Cimiano}
+  \label{fig:bolo}
+\end{figure}
+
+
+\subsection{Text2Onto}
+Originalmente tinha o nome de \emph{TextToOnto} e foi uma ferramenta
+parte do projeto KAON \footnote{\url{http://kaon.semanticweb.org/}},
+que é um projeto de código aberto para o desenvolvimento de ontologias
+com fins empresariais.
+
+O Text2Onto \footnote{\url{http://ontoware.org/projects/text2onto/}}
+adquiriu o seu atual nome a partir do trabalho de
+\cite{Cimiano05text2onto}, em que os autores apresentam três novas
+melhorias: (i) Um modelo ontológico probabilístico (MOP), (ii) uma
+interface de interação com o usuário, e (iii) uma estratégia de
+atualização das probabilidades no MOP.
+
+\subsection{Gramática Restritiva (GR)}
+\label{sec-ao-gr}
+É uma técnica que consiste em aplicar padrões léxico-sintáticos com
+informação contextual sobre textos a fim de adquirir apenas certa
+informação desejada.
+
+Os sistemas baseados em GR são o foco de pesquisa do VISL
+\footnote{\url{http://beta.visl.sdu.dk/}}, que é um projeto importante
+de desenvolvimento de ferramentas baseadas em gramáticas \textit{online} para
+fins acadêmicos.
+
+Outro exemplo do uso deste paradigma encontra-se no projeto ACE
+\footnote{\url{http://attempto.ifi.uzh.ch}} (\textit{Attempto Controlled
+English}) cujo objetivo é a construção de ontologias usando uma entrada
+em linguagem natural com certas restrições.
+
+Na Tabela \ref{tab:ace-example} vemos diferentes construções em
+linguagem natural que o projeto ACE traduz para uma ontologia. Vale a
+pena ressaltar que: na construção 1, vemos que as classes \texttt{man}
+e \texttt{human} foram reconhecidas; na construção 3, os indivíduos
+\texttt{John} e \texttt{Mary} foram reconhecidos; na construção 7,
+vemos a definição da propriedade \texttt{mary}; e, na construção 8,
+vemos uma regra envolvendo duas propiedades \texttt{like} e
+\texttt{love}.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|l|l|} \hline
+     & \textbf{ACE} & \textbf{Linguagem Formal} \\ \hline \hline
+    1 & Every man is a human. & \texttt{man} $\subseteq$ \texttt{human} \\ \hline
+    2 & Every human is a male or is a female. & \texttt{human} $\subseteq$ \texttt{male} $\bigcup$ \texttt{female} \\ \hline
+    3 & John is a student and Mary is a student. & $\{$\texttt{John,Mary}$\}$ $\subseteq$ \texttt{student}. \\ \hline
+    4 & No dog is a cat. & \texttt{dog} $\subseteq$ $not$ \texttt{cat} \\ \hline
+    5 & Every driver owns a car. & \texttt{driver} $\subseteq$ $\exists$ \texttt{own car} \\ \hline
+    6 & Everything that a goat eats is some grass. & \texttt{goat} $\subseteq$ $\forall$ \texttt{eat grass} \\ \hline
+    7 & John likes Mary. & $<$\texttt{John,Mary} $>$ $\in$ \texttt{like} \\ \hline
+    8 & Everybody who loves somebody likes him/her. & \texttt{love(X,Y)} $\Rightarrow$ \texttt{like(X,Y)} \\ \hline
+  \end{tabular}
+  \caption{Exemplo do ACE, extraído do site de Attempto.}
+  \label{tab:ace-example}
+\end{table}
+
+
+\subsection{OntoLP}
+É um \textit{plugin} feito para o Protégé como parte do trabalho de mestrado de
+\cite{Luiz:Carlos:08}. Ele usa técnicas híbridas entre estatística e
+padrões léxico-sintáticos para achar a lista de termos, além de
+aplicar padrões para identificar uma taxonomia de conceitos na
+ontologia.
+
+Dentre as características mais importantes deste \textit{plugin} estão:
+\begin{itemize}
+\item A entrada são arquivos em formatação XCES\footnote{XCES:
+    \textit{XML-based Encoding Standard for Linguistic Corpora}}, que é uma
+  representação em XML da anotação linguística de certos textos.
+
+\item A partir deste formato XCES,  extraem-se facilmente os núcleos dos sintagmas nominais que serão considerados termos.
+
+\item Opcionalmente, realiza-se uma filtragem por grupos semânticos de
+  acordo com a informação do analisador sintático \texttt{PALAVRAS} que foi  desenvolvido  por \cite{bick2000}.
+
+\item Para calcular a relevância dos termos, foram usados três
+  métodos: Frequência Relativa, \emph{tf-idf} e C/NC\emph{Value}.
+
+\item Os termos simples são considerados subconceitos dos termos
+  complexos, por exemplo: \emph{arquitetura} é superconceito de
+  \emph{arquitetura colonial}, \emph{arquitetura eclesiástica} e
+  \emph{arquitetura moderna}.
+
+\item Para a extração de taxonomias, usam-se os padrões léxico-sintáticos de Baségio. 
+
+\end{itemize}
+
+
+%Fechamento
+Neste capítulo, apresentamos brevemente uma introdução ao tema de ontologias e vimos também conceitos genéricos de um sistema de AO. Falamos um pouco de GR e analisamos também o OntoLP a maneira de exemplo de um sistema de AO. No próximo capítulo, falaremos de outro tópico importante:  \emph{a análise de conceitos formais}.

@@ -1,0 +1,137 @@
+f\chapter{Avaliação de Ontologias}
+\label{cap:avaliacao}
+
+É difícil definir o que é uma ``boa ontologia'', mas para alguns
+autores, como Claudia Freitas \cite{claudiaFreitas07}, uma boa
+ontologia é apenas aquela que cumpre com os requisitos do sistema
+onde queremos aplicá-la.
+
+A nossa motivação é o fornecimento de ontologias no projeto OnAir onde
+planejamos utilizar legendas de vídeos de algum certo domínio e
+realizar o AO nelas. Escolhemos usar o material de AgilCoop, que
+disponibilizou na internet gravações de palestras sobre o tema 
+\textit{desenvolvimento ágil de software}.
+
+OntoLP {\footnote{http://www.inf.pucrs.br/~ontolp/index.php}}, o
+principal portal sobre a área de ontologia, tem como projeto principal
+um plugin de Protègè que realiza AO em textos escritos em língua
+portuguesa. Uma caraterística deste plugin é a necessidade dos
+arquivos de entrada serem no formato XCES, que é um formato de
+especificação dos elementos linguísticos presentes nas sentenças, por
+exemplo sintagmas nominais, adjetivais e outros.
+
+Cogroo é um corretor gramatical de português, mas que pode ser usado
+para realizar análise morfossintático em textos e gerar arquivos XML.
+Essa característica nos ajudará a usar o OntoLP.
+
+De acordo com o trabalho de Janez Brank et al. \cite{Brank05asurvey},
+existem as seguintes formas de avaliação:
+\begin{itemize}
+\item[(i)] \textit{baseando-se em uma referência dourada}, onde a
+  referência dourada é uma ontologia fruto da sínteses de outras
+  ontologias de referência, e da discussão com um especialista do
+  domínio;
+\item[(ii)] \textit{usando a ontologia em uma aplicação}, onde
+  respondemos as perguntas: satisfazemos as restrições do sistema?.
+  Resolve as consultas que os usuários precisam?;
+\item[(iii)] \textit{comparar com uma fonte de dados}, isto é, se a
+  ontologia possui termos para conceitos e relações congruentes
+  com o domínio estudado.
+\item[(iv)] \textit{feita por um humano}, que na verdade é feita por
+  um especialista que determina se a ontologia representa realmente o
+  domínio de estudo.
+\end{itemize}
+
+De forma prática, Lozano-Tello \cite{Lozano02Metrica} propôs na tese
+de doutorado a metodologia \textit{METHONTOLOGY} junto à ferramenta
+\textit{Ontometrics} para poder escolher uma ontologia mais adequada
+dentre outras para certo projeto. Essa metodologia possui 160
+características distribuídas em 4 dimensões:
+\begin{itemize}
+\item conteúdo,
+\item linguagem de implementação, 
+\item metodologia de desenvolvimento,
+\item ambientes de desenvolvimento, e
+\item custos.
+\end{itemize}
+
+Para nosso interesse precisamos comparar apenas a dimensão
+\textit{conteúdo} das ontologias. Por esse motivo detalhamos na Tabela
+\ref{tab:aval-conteudo} o questionário e os pesos por pergunta propostos
+por Lozano-Tello para avaliar tal dimensão. A tabela original contia o
+fator de axiomas, porém, tanto OntoLP quanto nossa ferramenta não possue
+o aprendizado de axiomas.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|p{12cm}|l|c|} \hline
+    \textbf{Código} & \textbf{Característica} & \textbf{Peso} \\ \hline \hline
+    \multicolumn{3}{|c|}{\textbf{Factores de Conceitos}} \\ \hline
+    C11 & Os conceitos essenciais para o projeto encontram-se na ontologia  & 0,1694 \\ \hline
+    C12 & Os conceitos essenciais para o projeto estão em níveis superiores da ontologia & 0,124 \\ \hline
+    C13 & Os conceitos estão descritos adequadamente em linguagem natural & 0,1868 \\ \hline
+    C14 & A especificação formal dos conceitos coincide com a descrição em linguagem natural  & 0,2135 \\ \hline
+    C15 & Os atributos descrevem de forma precisa os conceitos  & 0,1893 \\ \hline
+    C16 & O número de conceitos é adequado para representar a ontologia & 0,1162 \\ \hline
+
+    \multicolumn{3}{|c|}{\textbf{Factores de Relações}} \\ \hline
+    C21 & As relações essenciais para o projeto estão na ontologia & 0,1464 \\ \hline
+    C22 & Os conceitos encontram-se relacionados corretamente & 0,1249 \\ \hline
+    C23 & As relações estão descritas adequadamente em linguagem natural & 0,1831 \\ \hline
+    C24 & As aridades das relações são adequadas para o projeto & 0,1600 \\ \hline
+    C25 & As relações tem especificadas suas propriedades formais & 0,1077 \\ \hline
+    C26 & O número de relações é adequado para representar a ontologia & 0,1005 \\ \hline
+
+    \multicolumn{3}{|c|}{\textbf{Factores de Taxonomia}} \\ \hline
+    C31 & Classificação dos conceitos desde várias perspectivas & 0,2302 \\ \hline
+    C32 & As relações Not-Subclass-Of são apropriadas & 0,1180 \\ \hline
+    C33 & As relações de partição disjunta são usadas apropriadamente & 0,1983 \\ \hline
+    C34 & As relações de partição exaustiva são usadas apropriadamente & 0,2054 \\ \hline
+    C35 & Profundidade máxima adequada & 0,1151 \\ \hline
+    C36 & A meia de filhos por conceito é adequada & 0,1328 \\ \hline
+
+  \end{tabular}
+  \caption{Características na dimensão ``conteúdo'' sem a avaliação dos factores de axiomas.}
+  \label{tab:aval-conteudo}
+\end{table}
+
+Finalmente, planejamos realizar o seguinte experimento sobre as
+legendas dos vídeos de desenvolvimento de software:
+\begin{itemize}
+\item Extraímos o texto das legendas (que vemos em negrita na Figura
+  \ref{fig:formato-legenda}) a partir dos arquivos .SRT dos vídeos.
+  \begin{figure}[h]
+    \centering
+    \begin{tabular}{|l|} \hline
+      legenda 1 \\
+      inicio $\rightarrow$  fim \\
+      \textbf{texto da legenda 1} \\ 
+      \\
+      legenda 2 \\
+      inicio $\rightarrow$  fim \\
+      \textbf{texto da legenda 2} \\ 
+       \\
+      ... \\ \hline
+    \end{tabular}
+    \caption{Formato de Legendas com extensão SRT}
+    \label{fig:formato-legenda}
+  \end{figure}
+
+\item Construímos a referência dourada com supervisão do especialista
+  de domínio.
+
+\item Implementamos uma funcionalidade usando Cogroo para criar
+  documentos no formato XCES a fim de usá-los no OntoLP e os
+  documentos originais em nossa ferramenta.
+
+\item Geramos ontologias com ambas ferramentas e as avaliamos com
+  ajuda do especialista, de acordo com os critérios da Tabela
+  \ref{tab:aval-conteudo}.
+
+\item Estabelecemos com ajuda do especialista também, um conjunto de
+  consultas que uma ontologia sobre o domínio deve ser capas de
+  responder.
+
+\item Realizamos as consultas e concluímos finalmente sobre o
+  experimento.
+\end{itemize}

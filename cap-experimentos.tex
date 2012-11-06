@@ -1,0 +1,284 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Experimentos e Resultados}
+\label{cap:experimentos}
+
+Para poder avaliar nosso trabalho, escolhemos textos sobre três temas nos domínios de:  engenharia de \textit{software}, conto de fadas e biologia.  As ontologias foram aprendidas e submetidas à avaliação usando o modelo de características de conteúdo proposta no método \textit{OntoMetrics}.
+
+\section{Descrição dos textos}
+\subsection*{Engenharia de \textit{Software}: Métodos Ágeis de Desenvolvimento de \textit{Software}}
+Consiste na transcrição de um conjunto de
+palestras sobre métodos ágeis, ministradas e
+registradas pelo grupo AgilCoop
+\footnote{\url{http://ccsl.ime.usp.br/agilcoop/agilvideo}} na
+Universidade de São Paulo desde 2007. O texto final com a união de todas as transcrições possuia $11098$ palavras.
+
+\subsection*{Conto de Fadas: Branca de Neve e os Sete Anões}
+A versão usada é a adaptação popular em Português do conto dos irmãos Grimm \footnote{\url{http://www.educacional.com.br/projetos/ef1a4/contosdefadas/brancadeneve.html}}. O texto possui apenas $837$ palavras.
+
+\subsection*{Biologia: Câncer (Doença)}
+Usamos dois textos:  
+\begin{itemize}
+  \item O primeiro é uma publicação feita pelo Instituto Nacional do Câncer - INCA, que trata do carcinoma de células escamosas da cabeça e pescoço (HNSCC), que é o quinto tipo de câncer mais comum mundialmente. Tal artigo foi publicado na Revista Brasileira de Cancerologia em  \cite{jucimara09}. Esse texto possui $6263$ palavras.
+  
+  \item O segundo texto é um artigo do Wikipédia \footnote{\url{http://pt.wikipedia.org/wiki/Cancro}} em que são descritos, de forma geral, os aspectos básicos do cancro (Português europeu) ou câncer (Português brasileiro). O texto possui  $7374$ palavras.
+\end{itemize}
+
+\section{Procedimentos}
+A seguir, descreveremos os passos realizados e as experiências em
+cada um deles.
+
+\subsection{Extração de Termos}
+
+Usamos o Cogroo para lidar com a informação linguística dos textos e
+experimentamos o seguinte:
+
+\begin{itemize}
+\item Antes da versão 3, a forma de usar o Cogroo se dava através de uma
+  interface UIMA. Tal interface padronizava o Cogroo para poder ser
+  utilizado por diferentes ferramentas. Isso possibilitava que, com o
+  mesmo código, pudéssemos trocar de Português para Inglês ou outras
+  línguas.
+
+\item O Cogroo UIMA era um projeto ambicioso, porém, percebemos que
+  apareciam alguns erros na rotulação, ou seja, alguns elementos
+  gramaticais não eram corretamente estabelecidos. Portanto decidimos
+  re-projetar nossa arquitetura para trabalhar com o Cogroo
+  diretamente sem usar o UIMA.
+
+\item Como qualquer sistema, o Cogroo às vezes não é preciso no
+  reconhecimento de elementos gramaticais. Por exemplo, em certas
+  ocasiões, o advérbio \emph{aí} é marcado como um substantivo. A
+  palavra \emph{que} também é interpretada de diferentes formas, às
+  vezes como um especificador, às vezes como um substantivo e às vezes  como um
+  pronome.
+  
+\item O Cogroo 3 possui um \textit{shallow parser} que retorna uma árvore sintática com
+sintagmas nominais, por exemplo, vemos na Figura \ref{fig:arvore1} a árvore sintática da frase \emph{A Branca de Neve vagou pela floresta}.
+
+   \begin{figure}[htpb]
+     \centering
+     \includegraphics[scale=0.8]{oracoes/arvore-branca-neves-vagou-floresta.pdf}
+     \caption{Árvore sintática da frase \emph{A Branca de Neve vagou pela floresta}}
+     \label{fig:arvore1}
+   \end{figure}
+\end{itemize}
+
+Nós usamos a métrica C/NC-\textit{Value}, detalhada na Seção \ref{sec:termos-nc}, com as seguintes características:
+
+\begin{itemize}
+\item Usamos o Cogroo para realizar a lematização das palavras. Também
+  o usamos como filtro linguístico para obter os sintagmas nominais e
+  consequentemente os sintagmas preposicionais:
+  \begin{itemize}
+  \item Como vimos na Figura \ref{fig:arvore1}, o Cogroo reconhece positivamente  
+    quais são os sintagmas nominais, mas para reconhecer os sintagmas
+    preposicionais  localizamos dois sintagmas nominais que possuam uma
+    preposição entre eles, tais como:
+
+    \item \categoria{...}{Vizinhança A}  \categoria{ \categoria{SN$_1$}{Primeiro
+        SN} \categoria{PREP}{Preposição} \categoria{SN$_2$}{Segundo
+        SN}}{SP} \categoria{...}{Vizinhança B}
+
+  \item Para cada SP, removemos os \emph{stop-words} que
+    estiverem no começo e no final, por exemplo a frase \emph{cada sintoma na lista acima}
+    ficaria reduzida a \emph{sintoma na lista}.
+
+  \item As palavras contextuais do SN$_1$ são a última palavra da
+    vizinhança $A$ e a primeira palavra do SN$_2$. Similarmente, as
+    palavras contextuais do SN$_2$ são a última palavra do SN$_1$ e a
+    primeira palavra da vizinhança $B$. Finalmente, as palavras das
+    vizinhanças são as palavras contextuais do SP.
+  \end{itemize}
+
+\item Em relação aos \textit{stop-words}, nós consideramos uma lista de 150
+  palavras, entre símbolos de pontuação, adjetivos de posição,
+  interjeições, conjunções, artigos, conectivos, etc. Vemos tal lista
+  no Apêndice \ref{ape:stop-words}.
+\end{itemize}
+
+Finalmente, a Tabela \ref{tab:term-list} mostra os primeiros quinze
+elementos escolhidos como termos para cada texto.
+
+
+\begin{sidewaystable}[htpb]
+  \centering
+  \begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|p{5cm}|} \hline
+    \textbf{Métodos Ágeis de Desenvolvimento de Software} & 
+    \textbf{Branca de Neve e os Sete Anões} & 
+    \textbf{Diagnóstico de câncer de pescoço e cabeça} &
+    \textbf{Carcoma}
+    \\ \hline
+    desenvolvimento de software  &  branca de neve  & HNSCC  & cancro \\
+    método ágil & coração em uma caixa   & recidiva locorregional   & câncer \\
+    software  & neve & câncer de cabeça & célula normal \\
+    seis mês  & belo de todo o mulher & superexpressão de EGFR & célula \\
+    engenharia de software & dia seguinte &  ciclo celular & órgãos linfoides \\
+    cliente & príncipe para um castelo distante &  paciente com HNSCC & câncer de pulmão \\
+    manifesto ágil & princesa para seu castelo & expressão de EGFR & câncer colorretal \\
+    gente  & sete anão & carcinogênese de cabeça & paciente com câncer \\
+    três mil linha   & lindo caixão de cristal & cabeça & cancro de o estómago \\
+    com   & princesa branco de neve & metástase em linfonodos cervical & colo de o útero \\
+    dia a dia & animal de a floresta & enzima ciclo-oxigenases & artigo principal \\
+    desenvolvimento  & passeio em a floresta & gene supressores & célula canceroso\\
+    método tradicional  & branca de neve cair & célula escamoso de cabeça & tumor benigno \\
+    colaboração com o cliente & história para o anão & câncer & gene \\
+    cara de o negócio & dono de cabana & ativação de oncogeneses & dna\\ \hline
+  \end{tabular}
+  \caption{Lista de termos para os nossos textos testes}
+  \label{tab:term-list}
+\end{sidewaystable}
+
+
+\subsection{Descoberta de Relações}
+
+No desenvolvimento do presente trabalho, tentamos aplicar a estratégia do trabalho de \cite{Luiz:Carlos:08}, ou seja, aplicamos os 
+padrões de Baségio (adaptação de Hearst) nos textos mas não encontramos
+resultados positivos, apenas uma ou até três relações reconhecidas em
+cada um. Esse resultado frustrante deveu-se ao fato de que os padrões eram muito rígidos, por exemplo, no seguinte texto:
+
+\begin{verbatim}
+A gente se depara com software que fez algo errado, que não funcionou
+direto. Pode ser o seu Mac OS ou o seu Windows que tem que dar reboot dez
+vezes, pode ser o seu Firefox que morre ou seu Internet Explorer, pode
+ser o seu banco cujo site de Hong Bank não funciona ou não faz alguma
+coisa que deveria fazer. Isso muitas vezes acontece por culpa de
+software mal feito.
+\end{verbatim}
+
+Nenhum padrão é reconhecido, porém,  os termos \emph{Mac OS} e \emph{Windows} compartilham a mesma natureza, e deveriam ser reconhecidos como equivalentes, de forma similar, \emph{Firefox} e \emph{Internet  Explorer}.
+
+Com o uso da GR, conseguimos identificar as seguintes relações:
+\begin{itemize}
+  \item \textit{Mac} \textbf{dar} \textit{reboot} \_dez\_vezes.
+  \item \textit{Windows} \textbf{dar} \textit{reboot} \_dez\_vezes.
+  \item Gente \textbf{deparar} \textit{software}.
+  \item \textit{Software} \textbf{faz} errado.
+  \item \textit{Software} \textbf{not\_funcionar} direto.
+\end{itemize}
+
+A estratégia adotada é parecida a \textit{RelText} (mencionado na Seção \ref{sec:relacoes-nao-taxonomicas}),
+já que estabelecemos verbos como relações enquanto que o domínio e a imagem são o sujeito e predicado da oração em que o verbo aparece. Na continuação descreveremos as regras usadas para analisar os textos.
+
+\subsubsection{Regras para uma GR na Língua Portuguesa}
+Visitamos cada elemento de uma sentença e tentamos identificar a
+estrutura \emph{sujeito-verbo-objeto} (SVO), em que o \emph{sujeito} e o
+\emph{objeto} serão de tipo \texttt{Lista}, e o verbo será apenas de
+tipo \texttt{String}.
+
+\begin{enumerate}
+\item Quando encontramos um sintagma nominal (\texttt{SN}), consideramos a
+  alternativa deste ser parte de uma sequência de SNs e/ou Sintagmas Preposicionais (\texttt{SP}s), como por exemplo: 
+
+  \begin{itemize}
+  \item \emph{O SCRUM, o XP e o Desenvolvimento Guiado por
+      Funcionalidades são metodologias ágeis.}
+  \end{itemize}
+
+  Neste exemplo, os sintagmas nominais SCRUM e XP são reconhecidos; e
+  de igual maneira o \texttt{SP} \textit{Desenvolvimento Guiado por
+    Funcionalidades}.  
+
+  Finalmente, dependendo se o verbo já foi encontrado, será colocado
+  na lista de sujeitos (antes do verbo) ou na lista de objetos (depois do
+  verbo).
+
+\item Se encontrarmos um verbo, primeiro verificamos se o verbo
+  principal já foi inicializado. E se ainda não foi, simplesmente
+  estabelecemos o verbo encontrado como o principal da atual sentença;
+  caso contrário, supomos que seja uma oração de período composto e
+  chamamos ao processo de análise recursiva, passando como
+  parâmetro o primeiro elemento não vazio entre:
+
+  \begin{enumerate}
+  \item o último objeto do predicado,
+  \item o sujeito da sentença atual, ou 
+  \item o sujeito recebido de uma sentença anterior analisada.
+  \end{enumerate}
+
+\item No caso de um advérbio, analisamos se ele é de negação como
+  \textit{não, nunca, jamais, nem, tampouco}, e se ele está do lado
+  do verbo. Exemplo:
+
+  \begin{itemize}
+  \item \emph{O analista não pode falhar}
+  \end{itemize}
+
+
+  Se não for de negação, consideramos a possibilidade da frase ser de período
+  composto verificando se tal advérbio é de causa (\textit{porque,
+    consequentemente}); ou de exclusão
+  (\textit{apenas, exclusivamente, salvo, senão, simplesmente, só,
+    somente, unicamente}); ou de inclusão (\textit{ainda, até,
+    inclusivamente, mesmo, nomeadamente, também), de lugar (aí, aonde,
+    onde}); ou de modo (\textit{aliás}). Exemplo:
+
+  \begin{itemize}
+  \item \emph{Deve-se entregar no prazo porque o cliente está
+      exigindo}.
+  \end{itemize}
+
+
+  Se não for algum dos tipos anteriores de advérbio, simplesmente o ignoramos.
+
+
+\item Para o caso de uma preposição, verificamos se estamos lidando com um
+  um verbo composto como por exemplo: \textit{Eu ``gosto de viajar''
+  para o estrangeiro}.
+\item Se encontrarmos  um adjetivo, ele é considerado como um SN, e o
+  tratamos como na primeira regra.
+\item Se encontrarmos  um especificador, como por exemplo ``que'', então
+  estamos frente a uma frase subordinada, e chamamos recursivamente o
+  algoritmo para tal frase.
+\item Se encontramos uma conjunção, estamos frente a um caso de oração
+  coordenada, porém, o tratamento será o mesmo da regra anterior.
+\item Se encontramos uma vírgula, então, pode ser o caso de outra
+  frase e tratamos similarmente aos casos anteriores.
+\item Qualquer outro caso é simplesmente ignorado.
+
+\end{enumerate}
+
+
+\subsection{Análise de Conceitos Formais}
+Testamos três diferentes formas de introduzir a ACF dentro
+do processo de construção da ontologia:
+
+\begin{enumerate}
+  \item Construção de uma ontologia considerando os termos como \textit{objetos} e os verbos como \textit{atributos}
+  \item Com a mesma estratégia anterior, porém, usando rótulos reduzidos.
+  \item Estabelecendo superconceitos em nossa ontologia já aprendida com nosso método de análise sintática.
+\end{enumerate}
+
+\subsection{Experimentando o uso da ACF}
+Além de usar a ACF para obter um superconceito a partir do reticulado, implementamos também uma forma de traduzir um reticulado  a uma ontologia e experimentamos usar uma técnica de redução de etiquetas para conceitos formais.
+
+Basicamente, nosso roteiro foi o seguinte:
+\begin{enumerate}
+  \item Identificamos  o termos principais e os adicionamos ao conjunto de \emph{objetos}.
+  \item Reconhecemos os verbos que estavam juntos a estes termos e construímos um Contexto Formal. Por exemplo:
+	  \begin{itemize}
+    	\item \categoria{Branca de Neve}{primeiro termo} \categoria{dormiu}{verbo} na \categoria{floresta}{segundo termo}.
+	  \end{itemize}
+  
+       O atributo \emph{dormir} é mapeado ao termo \emph{Branca de Neve}, e o atributo \emph{está\_dormido} é relacionado com o termo \emph{floresta}. A regra para trocar a terminação AR e ER/IR do verbo por um sufixo ANDO ou INDO nem sempre é correta, por exemplo para o verbo \emph{ir}, nossa regra geraria o atributo $esta\_indo$, no entanto, o correto seria usar outro verbo mais adequado, de acordo com o contexto em que se fala. Por exemplo, se o sujeito está indo a outra cidade, então essa cidade recebe os objetos que possuem o atributo: \emph{está\_chegando}.
+       
+       \item Usamos o Galicia para construir o reticulado de conceitos e o traduzimos para um formato de ontologia. Todos os conceitos formais foram traduzidos em classes da ontologia, tendo como etiquetas os números dos nós. Visualmente o resultado é difícil de compreender, por exemplo apreciamos na Figura \ref{fig:reticulado-metodos-ageis}  o reticulado de conceitos para o tema de Métodos Ágeis. Esse reticulado teve 155 conceitos sem redução de etiquetas.
+       
+  \begin{figure}[htpb]
+    \centering
+    \includegraphics[width=14cm]{Images/grafito.png}
+    \caption{Reticulado de conceitos para o tema de Métodos Ágeis }
+    \label{fig:reticulado-metodos-ageis}
+\end{figure}
+
+		\item Estabelecemos as relações tomando como domínio as extensões, e, como imagem, as intensões. A etiqueta recebeu uma palavra genérica ($active$) junto a um número, por exemplo  a \emph{active12}  possui como domínio \texttt{Desenvolvimento} e como imagem \emph{está\_dividido}, \emph{está\_melhorado} e \emph{terminar}.  
+		
+\end{enumerate}
+		
+O principal problema com o estabelecimento de relações é que alguns conceitos possuíam uma enorme quantidade de objetos ou de atributos, por exemplo o \emph{active11}  possuia apenas $1$ domínio, mas  $27$ elementos na imagem.
+		
+A expressividade indicava que a ontologia estava escrita na família de lógica de descrição $\mathcal{A}\mathcal{L}\mathcal{U}$ e $\mathcal{A}\mathcal{L}\mathcal{C}$.
+
+Devido à inviabilidade da avaliação com outros métodos, bem como ao fato de ter um menor poder de expressividade, esta técnica foi descartada e nos concentramos na análise sintática e no uso da ACF como ferramenta para estabelecer um conceito superior comum para dois ou mais conceitos.
+
+%Fechamento
+Neste capítulo detalhamos os passos seguidos na realização das experiências. Descrevemos primeiro os textos analisados e depois falamos como foi realizada a extração de termos, depois a aplicação da GR e finalmente o uso do análise de conceitos. No próximo capítulo, descrevemos o método usado para a avaliação das ontologias aprendidas.

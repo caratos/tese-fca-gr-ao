@@ -1,0 +1,189 @@
+\chapter{Descoberta de Relações}
+\label{cap:relacoes}
+
+
+De acordo com \cite{shamsfard}, existem dois tipos de relações
+conceituais:
+\begin{enumerate}
+\item \textbf{Taxonômicas :} representam relações de generalização ou
+  especialização. Pertencem a este tipo as relações de hiponímia e/ou
+  hiperonímia. De acordo com \cite{sanchez09} existem dois métodos para
+  a descoberta de relações deste tipo: (i) usando padrões
+  léxico-sintáticos como os padrões de Hearst; e (ii) encontrando padrões
+  do tipo [[ADJETIVO*]SUBSTANTIVO], esse último enfoque foi abordado
+  por \cite{grefenstette97}.
+\item \textbf{Não Taxonômicas :} são as demais relações, por exemplo
+  sinonímia (mesmo significado), meronímia (parte de), antonímia,
+  possessão, e outras relações que são obtidas de forma automática por
+  algum sistema de aprendizado, e que podem possuir uma representação própria como \texttt{R1}, \texttt{R2} ou \texttt{R(1,2)} ;  ou uma representação em linguagem natural como \texttt{gostar\_de},  \texttt{andar\_com}, etc.
+\end{enumerate}
+
+\section{Descoberta de Relações Taxonômicas}
+De acordo com \cite{cimiano}, existem três métodos para adquirir uma
+hierarquia de conceitos.
+\begin{enumerate}
+\item Baseado em similaridades,
+\item Teoria de Conjuntos, e
+\item \textit{Clustering}
+\end{enumerate}
+
+\subsection{Baseado em Similaridade}
+O trabalho de \cite{Hearst92automaticacquisition} propõe seis padrões
+léxico-sintáticos para serem procurados nos textos de língua
+inglesa. Mais tarde, \cite{basegio:06} fez a adaptação deles para a
+língua portuguesa (ver Tabela \ref{tab:hearst-basegio}).
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|c|p{0.4\linewidth}|p{0.5\linewidth}|} \hline
+    & \textbf{Padrão Original} & \textbf{Adaptação}  \\ \hline
+    $h1$ & NP \textit{such as} \{NP,\}* \{(\textit{and}|\textit{or})\} NP & SUB tal(is) como \{(SUB)*(ou-e)\} SUB \\ \hline
+    $h2$ & \textit{such} NP \textit{as} \{NP,\}* \{(\textit{and}|\textit{or})\} NP & SUB tal(is) como \{(SUB)*(ou-e)\} SUB \\ \hline
+    $h3$ & NP {,NP}* \{,\} \textit{or other} NP & tal(is) SUB como \{(SUB)*(ou-e)\} SUB \\ \hline
+    $h4$ & NP {,NP}* \{,\} \textit{and other} NP & SUB \{,SUB\}*\{,\} ou outro(s) SUB \\ \hline
+    $h5$ & NP \textit{including} \{NP,\}* NP \{(\textit{and}|\textit{or})\} NP & SUB \{,SUB\}* \{,\} e outro(s) SUB \\ \hline
+    $h6$ & NP \textit{especially} \{NP,\}* \{(\textit{and}|\textit{or})\} NP &
+    \begin{itemize}
+     \item SUB {,} especialmente {SUB,}*{ou-e} SUB
+     \item SUB {,} principalmente {SUB,}*{ou-e} SUB
+     \item SUB {,} particularmente {SUB,}*{ou-e} SUB
+     \item SUB {,} em especial {SUB,}*{ou-e} SUB
+     \item SUB {,} em particular {SUB,}*{ou-e} SUB
+     \item SUB {,} de maneira especial {SUB,}*{ou-e} SUB
+     \item SUB {,} sobretudo {SUB,}*{ou-e} SUB
+    \end{itemize} \\ \hline
+  \end{tabular}
+  \caption{Padrões de Hearst adaptados por Baségio. Em que \emph{NP: \textit{Noun Phrase} (Sintagma Nominal)} e
+    \emph{SUB: Substantivo}}
+  \label{tab:hearst-basegio}
+\end{table}
+
+Por exemplo na sentença \emph{``Agar is a substance prepared from a
+  mixture of red algae, \textbf{such as} Gelidium, for laboratory or
+  industrial use''}, depois de aplicar o padrão $h1$ extraímos a
+relação: hiponímia(``Gelidium'', ``red algae'') que indica que
+\emph{``red algae''} tem como subconceito \emph{``Gelidium''}.
+
+Para a sentença \emph{``... works by \textbf{such} authors \textbf{as} Herrick, Goldsmith and Shakespare''}, depois de aplicar o padrão $h2$, extraímos as relações:
+\begin{itemize}
+  \item hiponímia(``author'',``Herrick'');
+  \item hiponímia(``author'',``Goldsmith''); e
+  \item hiponímia(``author'',``Shakespeare'').
+\end{itemize}
+que indica que \emph{``Herrick''}, \emph{``Goldsmith''} e \emph{``Shakespeare''} são subconceitos de \emph{``author''}.
+
+\subsection{Teoria de Conjuntos}
+\label{sec:fca}
+Neste tópico, Cimiano propõe a Análise de Conceitos Formais como a
+técnica mais simples para obter uma taxonomia de conceitos. Esta metodologia indica que uma taxonomia pode ser construída estabelecendo-se relações de similaridade entre conceitos contando com a quantidade de especificações em comum que eles possuam.
+
+\subsection{\textit{Clustering}}
+A suposição básica tomada por esses métodos está fundada na hipótese da
+distribuição de \cite{harris1968}, que simplesmente indica que
+palavras similares aparecem em contextos similares.
+
+Traduzindo a distribuição de Harris a um enfoque linguístico-computacional, o objetivo é estabelecer relações entre termos que possuam elementos sintáticos contextuais comuns.
+
+
+\section{Descoberta de Relações Não Taxonômicas}
+\label{sec:relacoes-nao-taxonomicas}
+
+\cite{sanchez09} indica que a descoberta de relações deve se
+ocupar de duas tarefas: (i) encontrar os conceitos relacionados entre si e
+estabelecer uma relação entre eles, e (ii) etiquetar tal relação.
+
+Sánchez também indica alguns trabalhos que usaram um conjunto fechado
+de relações genéricas, por exemplo: \textit{parte-de}, \textbf{qualia}, \textbf{causation}. 
+
+O trabalho de \cite{botero08} propôs um algoritmo de \textit{clustering} para
+achar relações semânticas. Um problema desse trabalho é o estabelecimento de conceitos compostos como $algorithm\_genetic$ pois o trabalho agrupava dois grupos diferentes de conceitos: (i) aqueles relacionados a $algorithm$, e (ii) conceitos relacionados a $genetic$, mas que não necessariamente representavam fielmente o conceito de $genetic\_algorithm$. Entre as
+conclusões, Botero deixa aberto como trabalho futuro a otimização do
+algoritmo com ajuste de certas variáveis.
+
+O trabalho de \cite{schutz-buitelaar05}  estabelece verbos como relações entre conceitos.
+Ele analisa um determinado texto e fornece uma lista com as triplas relevantes (pares de conceitos, conectados por um verbo) sobre outra ontologia de conceitos existente.
+
+
+\section{Gramática de Restrições}
+\label{sec:gramatica-restritiva}
+
+De acordo com \cite{karlsson1995constraint}, a Gramática de Restrições é um paradigma no Processamento de Linguagem Natural. Ela consiste na compilação de um conjunto de regras em uma gramática. Cada regra mantém um contexto e determina um comportamento  diferente para um componente analisado na sentença.
+
+Nesta seção, discutiremos como usar o conceito de GR (visto na seção
+\ref{sec-ao-gr}) na língua portuguesa.
+
+\subsection*{Problemas de GR no Português}
+A informação em qualquer texto não aparece em uma forma ideal em que podemos aplicar simples padrões. Por exemplo:
+
+\begin{itemize}
+\item \emph{A Branca de Neve, bonita como nenhuma, cantava
+    alegremente no bosque}.
+\end{itemize}
+
+Se quisermos encontrar a estrutura SVO (sujeito-verbo-objeto) na sentença anterior, uma simples
+análise não ajudaria, pois temos a seguinte ordem:
+
+
+\categoria{A Branca de Neve}{sujeito}, \categoria{bonita como
+  nenhuma}{aposto}, \categoria{cantava}{verbo}
+\categoria{alegremente}{C. Circunstancial} \categoria{no
+  bosque}{C. Indireto}.
+
+Notamos que o aposto é um elemento que dificulta a análise, mas que é
+importante pois faz parte da semântica da oração. Ele indica que
+\emph{Branca de Neve é bonita como nenhuma}.
+
+Também notamos que a frase não possui apenas um mas dois objetos ou
+complementos: \emph{alegremente} (circunstancial) \emph{no bosque}
+(indireto).
+
+As complicações se acrescentam quando analisamos frases de período
+composto, por exemplo: 
+
+\begin{itemize}
+\item \emph{Branca de Neve crescia e ficava bonita.}
+\end{itemize}
+
+Podemos obter duas expressões nucleares, ou orações de período
+simples:
+
+\begin{itemize}
+\item \emph{Branca de Neve crescia}
+\item \emph{Branca de Neve ficava bonita}
+\end{itemize}
+
+Ainda parece trivial, mas a complexidade cresce conforme vamos
+analisando orações mais extensas, por exemplo:
+
+\begin{itemize}
+\item \emph{Branca de Neve despediu-se dos sete anões e partiu junto
+    com o príncipe para um castelo distante onde se casaram e foram
+    felizes para sempre.}
+\end{itemize}
+
+Uma análise ótima poderia obter as seguintes frases de período simples:
+
+\begin{itemize}
+\item \emph{Branca de Neve despediu-se dos sete anões}
+\item \emph{Branca de Neve partiu junto com o príncipe}
+\item \emph{Branca de Neve partiu para um castelo distante}
+\item \emph{Branca de Neve e o príncipe casaram}
+\item \emph{Branca de Neve e o príncipe foram felizes para sempre}
+\end{itemize}
+
+Existe também uma frase que não está de forma explícita:
+\begin{itemize}
+\item \emph{O príncipe partiu junto com a Branca de Neve para um
+    castelo distante}
+\end{itemize}
+
+
+Aparentemente, uma pessoa pode extrair tal informação de uma forma natural. Porém, o trabalho para um programa de computador é desafiador.
+
+
+%Fechamento
+Neste capítulo, falamos sobre métodos de descoberta de relações e estudamos também o problema de aplicar uma simples GR para textos escritos em Português. Para poder projetar uma GR, precisaremos de alguns conceitos básicos de gramática e linguística que veremos no próximo capítulo.
+
+
+
+

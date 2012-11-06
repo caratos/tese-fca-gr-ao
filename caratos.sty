@@ -1,0 +1,44 @@
+% @author Carlos Eduardo Atencio Torres
+% @email carlost@ime.usp.br
+
+
+% COMO USAR:
+% \categoria{O}{artigo} \categoria{livro}{NS}
+% Resultado:
+%
+%
+%     O       livro
+%
+%  \--v--/   \--v--/
+%
+%   artigo      NS
+%
+%
+% Primeiro achei esta forma 
+%\usepackage{xstring}
+%\newcommand{\categoria}[2]
+%{
+%  \begin{tabular}{c}
+%   $\underbrace{\StrSubstitute{#1}{ }{\quad}}$ \\
+%   #2
+%   \end{tabular}
+%}
+
+% mas depois achei mais simples esta forma:
+\newcommand{\categoria}[2]
+{
+  \begin{tabular}[h]{c}
+   $\underbrace{\textrm{\emph{#1}}}$ \\ 
+   #2
+  \end{tabular}
+}
+
+\newcommand{\oracao}[2]
+{
+  \categoria{#1}{Sujeito} \categoria{#2}{Predicado}
+}
+
+\newcommand{\chave}[1]
+{
+  \left\{ #1 \right.
+}

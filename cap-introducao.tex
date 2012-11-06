@@ -1,0 +1,31 @@
+\chapter{Introdução}
+\label{cap:introducao}
+
+O uso de ontologias formais no contexto da Web Semântica permite compartilhar conhecimento através de diferentes aplicações indo em direção ao sonho de \cite{Barners99}. No entanto, a construção dessas ontologias é, geralmente, feita por um especialista (processo este que requer um investimento considerável de tempo e dinheiro). Portanto, é necessário desenvolver um método automático ou semiautomático de construção de ontologias. Esse processo é chamado de Aprendizado de Ontologia (AO).
+
+Diferentes metodologias e aplicações que trataram o problema de AO foram detalhados nos estudos de \cite{survey-ol} e \cite{Brank05asurvey}. A maioria dessas metodologias apresentou uma arquitetura dividida em: (i) extração de termos, (ii) extração de conceitos, (iii) construção de taxonomia de conceitos, (iv) descoberta de relações, e (v) extração de axiomas.
+
+É importante notar que a maioria dos trabalhos foi feito para o idioma inglês, sendo o trabalho de \cite{Luiz:Carlos:08} o primeiro a realizar AO para textos em Português. Ele apresentou um plugin para o Protégé chamado OntoLP que recebe textos previamente transformados para o formato XCES (formato para representar a estrutura sintática do texto) e utiliza padrões sintáticos para adquirir as relações. Porém, um dos problemas dessa abordagem é que, devido à rigidez dos padrões sintáticos, muitos casos verdadeiros são omitidos na análise.
+
+Diferente do trabalho de Junior, o projeto ACE \footnote{\url{http://attempto.ifi.uzh.ch}} (\textit{Attempto Controlled English}) usa uma gramática de restrições (GR) para traduzir sentenças escritas em linguagem natural em um formato de propriedades ontológicas.
+
+No presente trabalho, também estudamos o uso da Análise de Conceitos Formais (ACF) de \cite{Wille82}, que é uma teoria de análise de dados que identifica estruturas conceituais entre um conjunto de dados. De acordo com  \cite{cimiano2003automatic}, uma ontologia pode ser adquirida a partir de um reticulado de conceitos traduzido em uma taxonomia de conceitos. Um grave problema nesse enfoque é observado no momento da etiquetação das propriedades. Já para \cite{Wang:2006},  isso não representa problema, pois ele utiliza a linguagem SWRL (\textit{Semantic Web Rule Language}) para representar regras em uma ontologia. Ainda assim, o ponto forte da ACF ainda é a taxonomia de conceitos.
+
+O objetivo deste trabalho é a proposta de um método de AO para o Português em que:
+\begin{itemize}
+  \item Usamos o método C/NC-\textit{values} para a extração de termos. Esse método utiliza a informação sintática das palavras, junto com a frequência delas e considera também a frequência em que uma palavra candidata a termo é parte de outra palavra candidata a termo. Uma ferramenta muito útil para a tarefa de conseguir a informação sintática é o corretor ortográfico Cogroo, o qual possui uma API para analisar textos.
+  
+  \item Projetamos uma GR para o Português, a qual foi testada com uma grande quantidade de construções sintáticas dessa língua. 
+  
+  \item Usamos a ferramenta proposta por \cite{galicia} para construir um reticulado de conceitos a partir de uma tabela objeto-atributo. Em seguida, esse reticulado foi traduzido a uma forma taxonômica e aqueles conceitos que possuíssem mais de um conceito inferior seriam adicionados na ontologia. 
+  
+  \item Implementamos uma ferramenta em Java para extrair as ontologias a partir dos textos. Essa ferramenta possui uma opção de filtragem para cada etapa no AO. 
+  
+  \item Usamos o marco de características do método \textit{OntoMetrics} para avaliar a dimensão "\textit{conteúdo da ontologia}" retornadas pela nossa ferramenta. Tal dimensão possui os fatores de Taxonomia, Conceitos, Relações e Axiomas. No entanto, o fator de Axiomas não foi considerado para o presente trabalho.
+  
+  \item Para a avaliação, levamos em consideração textos de três temas: (i) Métodos Ágeis, (ii) Branca de Neve e (iii) Câncer (Doença). Usamos a ferramenta e geramos ontologias para esses textos. 
+  
+  \item Fizemos um \textit{site} para mostrar amigavelmente tais ontologias para que especialistas as avaliem. As avaliações foram muito interessantes e as ontologias provaram ser idoneamente aceitáveis. 
+\end{itemize}
+
+Os capítulos \ref{cap:ao} e \ref{cap:fca} são introdutórios e apresentarão, de forma geral, os conceitos de AO e ACF respectivamente. Já no Capítulo \ref{chap:termos}, começaremos a descrever um sistema de AO e falaremos sobre diferentes formas de extração de termos, ressaltando a técnica de C/NC\textit{Values}. No Capítulo \ref{cap:relacoes},  descreveremos diferentes técnicas de descoberta de relações e discutiremos o problema da GR. No Capítulo \ref{cap:lingustica}, faremos um breve resumo da sintaxe da gramática portuguesa e falaremos sobre a gramática gerativa e a análise de constituintes. No Capítulo \ref{cap:experimentos}, relataremos nossas alegrias e frustrações nos experimentos. No Capítulo \ref{cap:avaliacao}, introduziremos o conceito de avaliação de ontologias, detalhando o método de \textit{OntoMetrics} e apresentaremos os resultados da avaliação pelos especialistas consultados. Finalmente, no Capítulo \ref{cap:conclusoes}, relataremos as conclusões do trabalho.

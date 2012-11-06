@@ -1,0 +1,28 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{qtree}
+\usepackage{anysize} % Soporte para el comando \marginsize
+\marginsize{2.5cm}{2cm}{0.5cm}{1cm} 
+
+%opening
+\title{Creando una tarea en Ant}
+\author{Carlos Eduardo Atencio Torres }
+\date{\textbf{Universidad Nacional de San Agustin} \\ \textbf{Esc. Prof. de Ingenier\'ia de Sistemas}}
+
+\begin{document}
+
+\maketitle
+
+%\Tree [.SF \qroof{a formiga}.SN [.F' [.F -eu ] \qroof{a simple tree}.NP ] ]
+
+%\qtreeinithook
+%\Tree [.SF \qroof{A formiga}.SN [.F' [.F -eu ] [.SV [.V com- ] \qroof{a folha}.SN  ]   ] ]
+%\qtreefinalhook
+
+\qtreeinithook
+  \Tree [.S A B]
+\qtreefinalhook
+
+%\Tree [.F \qroof{A formiga}.SN [.SN [.V comer ] \qroof{a folha}.SN ] ]
+
+\end{document}

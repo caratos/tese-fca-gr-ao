@@ -1,0 +1,250 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Experimentos e Resultados}
+\label{cap:experimentos}
+
+Usamos três textos para nossos experimentos:
+\begin{itemize}
+\item Transcripção de vídeos sobre métodos ágeis,
+\item Revisão bibliográfica sobre o câncer de cabeça e pescoço, e
+\item Conto de fadas de Branca de Neves e os sete anões.
+\end{itemize}
+
+O primeiro material consistiu na transcripção de um conjunto de
+palestras sobre métodos ágeis. Tais palestras foram ministradas e
+registradas pelo grupo AgilCoop
+\footnote{\url{http://ccsl.ime.usp.br/agilcoop/agilvideo}} na
+Universidade de São Paulo desde o 2007. Analisamos um vídeo da
+coleição, que possuia 6015 palavras.
+
+Decidimos também incluir uma revisão bibliográfica sobre o câncer para
+avaliar o desempenho de nossa ferramenta em uma área de conhecimento
+diferente da computação. Tal revisão bibliográfica foi publicada na
+Revista Brasileira de Cancerologia no 2009 \cite{jucimara09}. O texto
+possuia 5210 palavras.
+
+Finalmente, usamos o conto de fadas \emph{Branca de Neves e os sete
+  anões} por ter uma narrativa simples e carente de termos
+técnicos. Esperamos obter uma melhor performance com tais características. O texto possuia apenas 800 palavras.
+
+A continuação, descreviremos os passos realizados e as experiências em
+cada um deles.
+
+\section{Extração de Termos}
+
+Usamos o Cogroo para tratar com a informação lingústica dos textos e
+experimentamos o seguinte:
+
+\begin{itemize}
+\item Antes da versão 3, a forma de usar o Cogroo era a través de uma
+  interface UIMA. Tal interface padronizava o Cogroo para poder ser
+  utilizado por diferentes ferramentas. Isso possibilitaba que com o
+  mesmo código, pudessemos trocar de Português a Inglês ou outras
+  línguas.
+
+\item O Cogroo UIMA era um projeto ambicioso, porém, percebimos que
+  alguns erros na etiquetação apareciam, ou seja, alguns elementos
+  gramaticais não eram corretamente estabelecidos. Por tanto decidimos
+  re-projetar nossa arquitetura para trabalhar com o Cogroo
+  diretamente sem usar o UIMA.
+
+\item Como qualquer sistema, o Cogroo é as vezes não é preciso no
+  reconhecimento de elementos gramaticais. Por exemplo, em certas
+  ocasiões, o advérbio \emph{aí} é marcado como um substantivo. A
+  palavra \emph{que} também é interpretada de diferentes formas, as
+  vezes é um especificador, as vezes é um substantivo e as vezes um
+  pronome.
+\end{itemize}
+
+Nós usamos a mêtrica NC/Value, detalhada na Seção
+\ref{sec:termos-nc}, com as seguintes características:
+
+\begin{itemize}
+\item Usamos o Cogroo para realizar a lematização das palavras. Também
+  a usamos como filtro linguístico para obter os sintagmas nominais e
+  consequentemente os sintagmas preposicionais:
+  \begin{itemize}
+  \item O cogroo reconhece positivamente quais são os sintagmas
+    nominais, então, para encontrar os sintagmas preposicionais
+    precisamos encontrar dois sintagmas nominais que possuam uma
+    preposição entre elas, assim como:
+    \begin{itemize}
+    \item \categoria{...}{Vizinhança A} \categoria{SN$_1$}{Primeiro
+        SN} \categoria{PREP}{Preposição} \categoria{SN$_2$}{Segundo
+        SN} \categoria{...}{Vizinhança B}
+    \end{itemize}
+
+  \item Para cada SP, removemos os \emph{stop-words} que
+    estiverem no começo e no final, por exemplo \emph{A viagem um}
+    ficaria reducida a \emph{viagem} simplesmente.
+
+  \item As palavras contextuais do SN$_1$ serão a última palavra da
+    vizinhança $A$ e a primeira palavra do SN$_2$. Similarmente, as
+    palavras contextuais do SN$_2$ são a ultima palavra do SN$_1$ e a
+    primeira palavra da vizinhança $B$. Finalmente, as palavras das
+    vizinhanças são as palavras contextuais do SP.
+  \end{itemize}
+
+\item Enquanto aos StopWords, nós consideramos uma lista de 150
+  palavras, entre símbolos de pontuação, adjetivos de posição,
+  interjeições, conjunções, artigos, conectivos, etc. Apreciam-se
+  todas elas no Apéndice \ref{ape-stop-words}.
+\end{itemize}
+
+
+Finalmente, a Tabela \ref{tab:term-list} mostra os primeiros quinze
+elementos escolhidos como termos para cada texto.
+
+\begin{table}[htpb]
+  \centering
+  \begin{tabular}{|p{4.8cm}|p{4.8cm}|p{4.8cm}|} \hline
+    \textbf{Métodos Ágeis de Desenvolvimento de Software} & 
+    \textbf{Branca de Neves e os Sete Anões} & 
+    \textbf{Diagnóstico de câncer de pescoço e cabeça} \\ \hline
+    desenvolvimento de software  &  branca de neves  & HNSCC   \\
+    método ágil & coração em uma caixa   & recidiva locorregional    \\
+    software  & neve & câncer de cabeça \\
+    seis mês  & belo de todo o mulher & superexpressão de EGFR \\
+    engenharia de software & dia seguinte &  ciclo celular \\
+    cliente & príncipe para um castelo distante &  paciente com HNSCC \\
+    manifesto ágil & princesa para seu castelo & expressão de EGFR \\
+    gente  & sete anão & carcinogênese de cabeça \\
+    três mil linha   & lindo caixão de cristal & cabeça \\
+    com   & princesa branco de neve & metástase em linfonodos cervical \\
+    dia a dia & animal de a floresta & enzima ciclo-oxigenases \\
+    desenvolvimento  & passeio em a floresta & gene supressores \\
+    método tradicional  & branca de neve cair & célula escamoso de cabeça \\
+    colaboração com o cliente & história para o anão & câncer \\
+    cara de o negócio & dono de cabana & ativação de oncogeneses \\ \hline
+  \end{tabular}
+  \caption{Lista de termos para os nossos textos testes}
+  \label{tab:term-list}
+\end{table}
+
+Como mencionamos na Seção \ref{sec:cogroo}, nós usamos o Cogroo, que é
+um corretor gramatical do português para o OpenOffice, e possui uma
+API. Depóis de ter aplicado o parseador sintático do Cogroo, nós
+identificamos os SN e SP como candidados atermos. Para isto aplicamos
+a métrica do NC-Values \cite{frantzi98}.
+
+O cogroo 3 possui um shallow parser que devolve por exeplo para a
+frase \emph{A Branca de Neve vagou pela floresta}, obtemos a árvore
+da figura \ref{fig:arvore1}. Vemos que não foi identificado o sintagma
+preposicional \emph{Branca de Neve}, por tanto, inplementamos tal
+funcionalidade.
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{oracoes/arvore-branca-neves-vagou-floresta.pdf}
+\caption{Figura de uma arvore}
+\label{fig:arvore1}
+\end{figure}
+
+
+\section{Descoberta de Relações}
+
+Tal como o trabalho de \ref{Luiz:Carlos:08}, aplicamos no começo os
+padrões de Baségio (adaptação de Hearst) mas não encontramos
+resultados positivos, apenas uma ou até três relações reconhecidas em
+cada texto. Tal resultado frustrante deveu-se a que os padrões eram
+muito rígidos, por exemplo no seguinte texto:
+
+\begin{verbatim}
+A gente se depara com software que fez algo errado, que não funcionou
+direto. Pode ser o seu Mac OS ou o seu Windows que tem que dar reboot dez
+vezes, pode ser o seu firefox que morre ou seu internet explorer, pode
+ser o seu banco cujo site de Hong Bank não funciona ou não faz alguma
+coisa que deveria fazer. Isso muitas vezes acontece por culpa de
+software mal feito.
+\end{verbatim}
+
+Então, se quisermos aplicar a adaptação de Baségio da regra $h6$ (ver
+tabela \ref{tab:hearst}, não encontrariamos nenhum padrão, pois não
+encontramos a palavra \emph{outros}. Isto é uma falha porque as
+palavras \emph{Mac OS} e \emph{Windows} compartilham a mesma natureza,
+e de forma similar, \emph{firefox} com \emph{internet explorer}.
+
+
+
+
+
+\section{Análise de Conceitos Formais}
+Construimos uma ontologia usando o reticulado para construir a
+hierarchia de conceitos. O que pudimos sacar proveitoso disso?
+
+
+Testamos também as três diferentes formas de introducir o FCA dentro
+do processo de construção da ontologia. A Tabela $2$ mostra os
+resultads depois de: (i) usar FCA com redução de etiquetas, (ii) rodar
+o FCA sem redução de etiquetas como Cimiano sugiriu, e em (iii) nossa
+proposta de análise sintático.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Resultados para (1) ACF com etiquetas reducidas, (2) ACF com conceitos complexos e (3) análise sintática com ACF}
+\begin{tabular}{|p{65pt}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+  \hline 
+  & \multicolumn{3}{|p{3cm}|}{Conto de Branca de Neves} & \multicolumn{3}{|p{3cm}|}{Palestra de Métodos Ágeis} & \multicolumn{3}{|p{3cm}|}{Diagnóstico de Câncer}\tabularnewline
+  \hline
+  & (1) & (2) & (3) & (1) & (2) & (3) & (1) & (2) & (3)\tabularnewline
+  \hline
+  \hline  
+  Clases & 21 & 48 & 21 & 27 & 86 & 155 & 10 & 22 & 18\tabularnewline
+  \hline 
+  Propriedades &  & 11 & 13 &  & 16 & 65 &  & 5 & 4\tabularnewline
+  \hline 
+  Axiomas de SubClases & 23 & 14 & 19 & 34 & 24 & 112 & 9 & 5 & 13\tabularnewline
+  \hline 
+  Axiomas de Equivalencia &  & 12 &  &  & 17 &  &  & 6 & \tabularnewline
+  \hline 
+  Axiomas de Disjoint &  &  &  &  &  & 12 &  &  & \tabularnewline
+  \hline 
+  Expressividade & AL & ALU & ALE & AL & ALU & ALC & AL & ALU & ALE\tabularnewline
+  \hline
+\end{tabular}
+\label{tab:results}
+\end{table}
+
+
+\subsection{Analisando os Fatores de Conceitos}
+\begin{itemize}
+\item Devido que usamos o mesmo método de extração de termos
+  (NC-Values), o valor de C11 é alto e igual para os três mêtodos.
+\item O fator C12 não pudo ser aplicado para o método (ii) devido que
+  sempre obtemos uma ontologia com máximo de profundidade $2$.
+\item O fator C13 apressentou problemas especialmente com o método
+  (ii) porque uma vez o conceito forma tinha sido traduzido em um
+  coneito na ontologia, esta adoptava como etiqueta a concatenação de
+  todos os elementos no \emph{intent}, o qual resultava em uma extensa
+  etiqueta difícil de ler. Aliás, o processo de adjetivização não era
+  correta em certos casos, por exemplo, o verbo \emph{ir} era
+  adjetivado como \emph{is\_indo}.
+\item Finalmente, os fatores C14 e C15 não são avaliados nos três
+  mêtodos porque não se completou o aprendizado de atributos no nosso
+  trabalho.
+\end{itemize}
+
+\subsection{Analisando os Fatores de Relações}
+\begin{itemize}
+\item Os resultados para os fatores C21,C22 e C23 são similares para a
+  análise dos fatores de conceitos C11,C12 e C13 respectivamente.
+\item Os fatores C24 e C25 são muito melhores para o método (iii)
+  devido que o objetivo de nosso trabalho foi de fornecer um domínio e
+  uma imagem que se encaixe melhor para uma certa propiedade.
+\end{itemize}
+
+\subsection{Analisando os Fatores de Taxonomia}
+\begin{itemize}
+\item O método (i) é interessante porque cria conceitos com mais de
+  dois padres. O fator $C31$ indica que isto é uma característica boa,
+  porém, existem casos onde isto pode ser perjudicial para a semántica
+  devido que pode criar inconsistência.
+\item O método (ii) é a única que pode responder existosamente aos
+  atores$ C32$ e $C33$.
+\item Para o fator $C35$, a maior profundidade dos três métodos é 3.
+\item Para o fator $C36$, o método (ii) prouce uma grande quantidade
+  de filhos.
+\end{itemize}
+
+
+\section{Criação da Ontologia}

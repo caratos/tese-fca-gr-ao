@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2011)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: tese-exemplo.aux
+A level-1 auxiliary file: ape-stop-words.aux
+A level-1 auxiliary file: ape-aontoweb.aux
+A level-1 auxiliary file: ape-questionario.aux
+A level-1 auxiliary file: ape-ontologia.aux
+The style file: plainnat-ime.bst
+Database file #1: bibliografia.bib
+Warning--string name "october" is undefined
+--line 829 of file bibliografia.bib
+Warning--can't use both author and editor fields in bechara
+Warning--empty publisher Em bechara
+Warning--empty publisher Em term-cabre
+Warning--can't use both author and editor fields in generativa
+Warning--empty publisher Em generativa
+Warning--can't use both author and editor fields in term-krieger
+Warning--empty publisher Em term-krieger
+Warning--can't use both author and editor fields in perini76
+Warning--empty publisher Em perini76
+Warning--can't use both author and editor fields in ruwet75
+Warning--can't use both author and editor fields in koch2001
+Warning--empty publisher Em koch2001
+You've used 61 entries,
+            2750 wiz_defined-function locations,
+            1024 strings with 16986 characters,
+and the built_in function-call counts, 25135 in all, are:
+= -- 2416
+> -- 1101
+< -- 77
++ -- 386
+- -- 325
+* -- 1560
+:= -- 3852
+add.period$ -- 232
+call.type$ -- 61
+change.case$ -- 210
+chr.to.int$ -- 61
+cite$ -- 134
+duplicate$ -- 1267
+empty$ -- 2146
+format.name$ -- 426
+if$ -- 5493
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 69
+newline$ -- 348
+num.names$ -- 248
+pop$ -- 639
+preamble$ -- 1
+purify$ -- 168
+quote$ -- 0
+skip$ -- 908
+stack$ -- 0
+substring$ -- 859
+swap$ -- 257
+text.length$ -- 27
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 586
+warning$ -- 12
+while$ -- 258
+width$ -- 0
+write$ -- 1006
+(There were 13 warnings)

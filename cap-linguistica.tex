@@ -1,0 +1,410 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Análise Sintática}
+\label{cap:lingustica}
+
+Neste capítulo faremos uma revisão da sintaxe da língua portuguesa
+em que, além de conceitos básicos, falaremos também da análise de
+constituintes. Para isso, tomamos como livro base \cite{bechara} e
+também o livro de sintaxe e cognição de \cite{generativa}.
+
+\section{Sintaxe}
+A sintaxe é uma parte da gramática que estuda a ordem dos constituintes
+em uma oração. 
+
+A oração encerra a menor unidade de sentido do discurso com propósitos
+definidos (\cite{bechara}). Ela pode estar constituída por um ou mais
+vocábulos, por exemplo:
+\begin{itemize}
+\item \textit{Atenção!}
+\item \textit{Vamos embora!}
+\item \textit{Claro que sim!}
+\item \textit{Margaret viaja com Bruno na terça à noite}
+\end{itemize}
+
+Quando uma mensagem é completa de acordo com o contexto, e delimitada
+por um silêncio precedente e uma pausa final (sinais de pontuação),
+chama-se de \emph{período},  existindo período simples e período composto quando a sentença possui uma ou mais orações respectivamente.
+
+
+\subsection{Oração}
+Existem diferentes tipos de oração:
+\begin{itemize}
+\item \textbf{Declarativas}, por exemplo:
+  \begin{itemize}
+  \item \emph{A biblioteca abriu ontem}.
+  \item \emph{Miguel está falando pelo telefone}.
+  \item \emph{Ainda não sei}.
+  \end{itemize}
+\item \textbf{Interrogativas}, por exemplo:
+  \begin{itemize}
+  \item \emph{Quantos anos você tem?}
+  \item \emph{Tudo bem?}
+  \end{itemize}
+\item \textbf{Imperativas}, por exemplo:
+  \begin{itemize}
+  \item \emph{Vá comer!}
+  \item \emph{Seja forte!}
+  \end{itemize}
+\item \textbf{Exclamativa}, por exemplo:
+  \begin{itemize}
+  \item \emph{Oh, meu Deus!}
+  \item \emph{Que interessante!}
+  \end{itemize}
+\end{itemize}
+
+Os termos essências da oração são o sujeito e o predicado. A omissão de um deles 
+é chamada de \textit{elipse}:
+
+\begin{itemize}
+\item \oracao{Marcos}{estuda muito}.
+\item \oracao{Maia!}{}, \emph{elipse} por ausência do predicado.
+\item \oracao{}{Corre!}, \emph{elipse} por ausência do sujeito.
+\end{itemize}
+
+\subsection{Sujeito}
+
+De acordo com Bechara, o sujeito indica a pessoa ou coisa de que
+afirmamos ou negamos uma ação ou qualidade, enquanto que o predicado é
+tudo o que se declara na oração, ordinariamente em referência ao
+sujeito.
+
+O núcleo do sujeito (NS) é o substantivo, que geralmente está rodeado de
+determinantes. Em geral, tais determinantes podem ser artigos,
+adjetivos, pronomes e quantificadores.
+
+\begin{itemize}
+\item \categoria{O}{artigo} \categoria{livro}{NS}
+\item \categoria{Os}{artigo} \categoria{livros}{NS}
+  \categoria{bons}{adjetivo}
+\item 
+\begin{tabular}{p{2.5cm}llp{2cm}}
+  $\underbrace{Aqueles}$ & $\underbrace{dois}$ & $\underbrace{livros}$
+  & $\underbrace{seus}$ \\
+  Pronome demonstrativo & quantificador & NS & pronome possessivo \\
+\end{tabular}
+\end{itemize}
+
+Existem também, a um nível sintático-semântico, os chamados \textit{termos nucleares} que estão intimamente ligados à relação predicativa. Por exemplo:
+
+\begin{itemize}
+\item \emph{Tim Berner's Lee propôs a Web Semântica como meio de
+    comunicação  entre máquinas}.
+\end{itemize}
+
+Além de [\emph{Tim Berner's Lee}] e [\emph{propôs}], existem as frases
+[\emph{Web Semântica}] e [\emph{meio de comunicação entre máquinas}]
+que são chamados \emph{nucleares} porque:
+
+\begin{itemize}
+\item A oração fala da [\emph{Web Semântica}], e
+\item menciona  também que esta \emph{Web Semântica} foi proposta como [\emph{meio de comunicação entre
+    máquinas}].
+\end{itemize}
+
+Quando existe um elemento que não está referido nem ao sujeito nem ao
+predicado, mas a toda a oração, então pode ser deslocado a qualquer
+posição, por exemplo:
+
+\begin{itemize}
+\item \textbf{\emph{Certamente}}, \emph{Tim Berner's Lee propôs a Web
+    Semântica como meio de comunicação entre máquinas}.
+\item \emph{Tim Berner's Lee}, \textbf{\emph{certamente}}, \emph{propôs a Web Semântica como meio de  comunicação entre máquinas.}
+\item \emph{Tim Berner's Lee propôs a Web Semântica como meio de
+    comunicação entre máquinas}, \textbf{\emph{certamente}}.
+\end{itemize}
+
+\subsection{Predicado}
+O núcleo do predicado  é o verbo. Quando o verbo é intransitivo, o
+predicado é chamado \emph{simples}, pois possui um significado
+concreto.
+
+Quando o predicado é extenso, possui delimitações chamadas de 
+\emph{argumentos} ou \emph{complementos verbais}. Tais complementos
+podem ser:
+
+\subsubsection{Complemento direto ou objeto direto}
+São aqueles que completam o significado dos verbos transitivos
+diretos, por exemplo:
+\begin{itemize}
+\item \emph{O estudante leu \underline{um livro}}.
+\item \emph{Eu estudei \underline{vários temas}}.
+\end{itemize}
+
+\subsubsection{Complemento indireto ou objeto indireto}
+Aqueles que estão ao lado dos verbos transitivos indiretos. Estes
+complementos caraterizam-se por estar junto a uma preposição, por
+exemplo:
+\begin{itemize}
+\item Os professores gostam \emph{\textbf{da} \underline{pesquisa}}.
+\item O aluno enviou seu trabalho \emph{\textbf{ao} \underline{professor}}.
+\item Os dois enviaram artigos \emph{\textbf{para} \underline{o
+      congresso}}.
+\end{itemize}
+
+\subsubsection{Complemento adverbiais}
+Os adjuntos adverbiais podem ser
+\begin{itemize}
+\item de lugar (respondem a perguntas como \emph{onde?}, \emph{por
+    onde?}, etc.): 
+  \subitem Adriana trabalha \underline{na Embratel}. (\emph{onde}) 
+  \subitem Passamos \underline{por várias cidades do interior}. (\emph{por onde?})  
+  \subitem Thiago viaja \underline{para Recife}. (\emph{aonde?})
+
+\item temporais (responde a perguntas como \emph{quando?}, \emph{desde
+    quando?}, etc.): 
+  \subitem Limpamos a casa \underline{no domingo}. (\emph{quando?})
+  \subitem Não paramos \underline{desde as quatro} \underline{até as oito}. (\emph{desde quando?},
+  \emph{até quando?})
+
+\item modais (responde a perguntas como \emph{como?}, \emph{de que
+    maneira?}): 
+  \subitem Bruno está ajudando \underline{bem}. (\emph{como?})
+  \subitem Pâmela ficou \underline{muito cansada}. (\emph{de que maneira?})
+
+\item de fim, de causa, de instrumento e de companhia:
+  \subitem Timóteo estudou matemática \underline{para seu trabalho}. (\emph{fim})
+  \subitem Choravam \underline{de emoção}. (\emph{causa})
+  \subitem Chutou a bola \underline{com a perna esquerda}. (\emph{instrumento})
+  \subitem Saiu \underline{com Ellen}. (\emph{companhia})
+
+\item de quantidade:
+  \subitem Talita trabalha \underline{muito \emph{mais}} nos domingos.
+  \subitem Peru acabou o jogo \underline{com \emph{dois} gols contra}.
+
+\item de distribuição:
+  \subitem Os biscoitos foram entregues \underline{\emph{para cada vizinho}}.
+
+\item de inclinação e oposição:
+\subitem Sempre esteve \underline{\emph{a favor dos mais necessitados}}.
+\subitem Ela sempre foi \underline{\emph{contra o aborto}}.
+
+\item de substituição, troca ou equivalência:
+\subitem Estou brincando \underline{\emph{no lugar} de estudar}.
+\subitem Sirley trocou a casa \underline{\emph{por mais} carros}.
+
+\item de campo ou aspecto:
+\subitem O novo estagiário é um especialista \underline{\emph{em base de dados}}.
+\subitem Ele conseguirá nos ajudar com seus \underline{\emph{conhecimentos atualizados}}.
+
+
+\item de assunto ou matéria tratada
+
+\begin{math}
+\qquad \textrm{O programa de hoje } tratou \left\{ \begin{array}{c}
+     \textrm{\underline{das doenças do corpo}} \\
+     \textrm{\underline{sobre a segurança nas ruas}} \\
+     \textrm{\underline{a respeito da crise financeira}}
+     \end{array} \right.
+\end{math}
+
+\end{itemize}
+
+
+\section{Orações  Complexas}
+Na gramática tradicional identificavam-se dois tipos de orações de acordo com a função sintática: independente e dependente, em que a oração principal era definida como \textit{aquela que pede uma dependente}, ou seja, aquela que a que as dependentes se ligam, por exemplo:
+
+\categoria{A Branca de Neve dormiu}{Oração Principal}
+\categoria{porque comeu a maçã envenenada}{Oração Dependente}.
+
+Ora, a atual gramática comporta dois tipos de orações: subordinada e
+ coordenada, as quais veremos na continuação.
+
+\subsection{Orações subordinadas}
+A partir do exemplo anterior, observamos que a oração 
+\emph{comeu a maçã} é independente de \emph{Branca de Neve dormiu},
+mas passou a exercer uma função de adjunto adverbial de causa já que
+\emph{porque comeu a maçã envenenada} é a oração subordinada.
+
+\subsubsection{Oração Subordinada Substantiva}
+A Oração Subordinada Substantiva (O.S.S.) exerce a função de
+substantivo e está precedida da \underline{conjunção}
+\emph{que}. Há seis tipos:
+
+\begin{itemize}
+\item Subjetiva (O.S.S.S): É preciso \emph{que os alunos estudem}.
+\item Objetiva Direta (O.S.S.O.D): O cliente disse \emph{que fizemos um
+  bom trabalho}.
+\item Objetiva Indireta (O.S.S.O.I): Precisamos \emph{de que os
+    provedores agilizem os processos}.
+\item Predicativa (O.S.S.P): O motivo foi \emph{que o outro time não conseguiu}.
+\item Completiva Nominal (O.S.S.C.N): Tenho esperança  \emph{que o artigo seja aceito}.
+\item Apositiva (O.S.S.A.): Algo é fato \emph{que a gente trabalhou muito para isto}.
+\end{itemize}
+
+\subsubsection{Oração Subordinada Adjetiva}
+É aquela que modifica um substantivo. A ligação é feita com ajuda de \underline{um pronome relativo}, \emph{que}, por exemplo:
+
+\begin{itemize}
+\item O projeto \emph{que era mais difícil} acabou nesta semana.
+\item O teste \emph{que tinha menos erros} falhou no último momento.
+\end{itemize}
+
+Também pode haver uma preposição ao lado do pronome relativo, por
+exemplo:
+
+\begin{itemize}
+\item O lugar \emph{a que vamos} ainda está longe.
+\item O celular de \emph{que gostas} chegou no país.
+\end{itemize}
+
+Essas orações também podem vir entre pausas, por exemplo:
+\begin{itemize}
+\item O cavalo,\emph{que ganhou a última corrida}, saiu nas capas
+    das revistas.
+\end{itemize}
+
+\subsubsection{Oração Subordinada Adverbial}
+Pode exercer função de advérbio ou mesmo de locução adverbial:
+\begin{itemize}
+\item O prazo foi adiado \emph{para ter mais tempo}.
+\end{itemize}
+
+Podem ser também:
+\begin{itemize}
+\item Causais: Acabei o mestrado \emph{porque me esforcei}.
+\item Comparativas: Os comentários de Marcelo foram tão bons \emph{como os de Flávio}.
+\end{itemize}
+
+
+\subsection{Orações coordenadas}
+São orações independentes que formam uma sequência. Por exemplo:
+\begin{itemize}
+\item \emph{Branca de Neve crescia e ficava mais bonita.}
+\end{itemize}
+Aqui temos duas orações:
+\begin{itemize}
+\item \emph{Branca de Neve crescia}
+\item \emph{e ficava mais bonita}
+\end{itemize}
+
+Quando as orações coordenadas possuem um travessão (-) como conector,
+chamam-se \emph{intercaladas}. Por exemplo:
+\begin{itemize}
+\item \emph{Uma mordida nesta maçã fará Branca de Neve dormir
+para sempre} - \emph{disse a bruxa}.
+\end{itemize}
+Caso contrário, as orações coordenadas com conetivos chamam-se
+\emph{conectivas}. Estas últimas podem ser de diferentes tipos:
+
+\begin{itemize}
+\item aditivas:
+\subitem Faremos nossos trabalhos  neste fim de semana \emph{e também}
+seremos rápidos.
+\subitem Não sou sábio \emph{nem} pretendo sê-lo.
+
+\item adversativas:
+\subitem Jogaram bem, \emph{mas} perderam como sempre.
+\subitem Ora você sai com os amigos, \emph{ora} você fica em casa.
+
+\item alternativas:
+\subitem Ou é verdadeira \emph{ou} é falsa.
+\subitem Pode ir para a esquerda \emph{ou} para a direita.
+
+\item conclusivas:
+\subitem Eu não estudei pra prova, \emph{logo}, tirei baixa nota.
+\subitem Me esforcei muito, \emph{portanto} espero uma grande recompensa.
+
+
+\item explicativas:
+\subitem Os humanos não voam \emph{porque} não são aves.
+\subitem A comida está gostosa, \emph{pois} eu que fiz.
+
+
+\end{itemize}
+
+
+\section{Gramática Gerativa}
+Na linguística existem três níveis de representação, os quais foram
+bem introduzidos por \\ \cite{costa-campos91}:
+
+\begin{itemize}
+\item O nível 1, que é inacessível pelo linguista, possui os
+  mecanismos e as representações abstratas das atividades da
+  linguagem. Este nível é adquirido desde a infância com o mundo que
+  nos rodeia. Aqui são geradas sequências linguísticas, que podem ser
+  observadas no nível 2.
+  
+\item A partir do nível 2, o linguista tem acesso ao nível 1 e sobre ele 
+  formula hipóteses. Aqui podemos falar de formas linguísticas, por
+  exemplo \emph{casa} dá a ideia de um imóvel onde podem morar
+  pessoas. Uma frase com \emph{casa} daria a ideia da interação dela
+  com outros objetos.
+  
+\item No nível 3, é construído um sistema de representação
+  metalinguístico para responder pela relação entre as sequências do
+  nível 2 e os mecanismos ou representação do nível 1. Por exemplo,
+  quando realizamos uma análise gramatical de uma oração: \emph{casa}
+  - substantivo.
+\end{itemize}
+
+De acordo com \cite{ruwet75}, uma gramática gerativa \textit{é uma gramática
+explícita, que enumera explicitamente todas e não mais que as frases
+gramaticais de uma língua, assim como suas descrições estruturais}. 
+
+Para \cite{generativa}, uma gramática \emph{explícita} consiste em um
+modelo de descrição sistemática da competência dos falantes de uma
+certa língua. O termo \emph{competência} de acordo com
+\cite{perini76}, designa o conjunto de normas ou regras que nos
+permite emitir, receber e julgar enunciados em uma certa língua.
+
+\cite{chomsky1957}  indicou que o verdadeiro objetivo da linguística deveria ser \textit{a formulação de uma gramática que, por meio de um número finito de regras, fosse capaz de gerar todas as frases de um idioma, do mesmo modo que um falante pode formar um número infinito de frases em sua língua, mesmo quando nunca as tenha ouvido ou pronunciado}.
+
+Nesse trabalho Chomsky define dois níveis: o superficial e o profundo, e determina o conjunto de transformações para ir de um nível a outro. A seguir estudaremos uma ferramenta para a análise de frases.
+
+\subsection{Análise de Constituintes} 
+De acordo com \cite{koch2001}, sintagma é um conjunto de elementos com valores significativos dentro da oração e que mantêm entre si uma relação de dependência e de ordem. Existem diferentes tipos:
+\begin{itemize}
+  \item Sintagma Nominal (SN), cujo núcleo é o substantivo.
+  \item Sintagma Verbal (SV), cujo núcleo é o verbo.
+  \item Sintagma Adjetival (SA), cujo núcleo é um adjetivo.
+  \item Sintagma Preposicional (SP), que é um SN acompanhado de uma preposição.
+\end{itemize}
+
+A estrutura sintática é uma configuração formada por unidades
+sintáticas, chamadas \emph{categorias}, de diferentes classes (nome,
+verbo, adjetivo, preposição, flexão, sintagma nominal, sintagma
+verbal, etc.), entre as quais, estabelecem-se dois tipos de relações
+fundamentais: domínio e precedência.
+
+Quando uma frase é analisada, o linguista constrói um indicador
+sintagmático, que não é mais que um gráfico em forma de árvore que
+representa a estrutura sintática da frase. Podemos ver, na Figura
+\ref{fig:exemplo1-indicador-sintagmatico}, o indicador sintagmático da
+frase \emph{A formiga comeu a folha}.
+
+\begin{figure}[htpb]
+  \centering
+\Tree [.SF \qroof{A formiga}.SN [.F' [.F -eu ] [.SV [.V com- ] \qroof{a folha}.SN  ]   ] ]
+  \caption{Exemplo de indicador sintagmático}
+  \label{fig:exemplo1-indicador-sintagmatico}
+\end{figure}
+
+Notemos que no topo desta árvore, encontra-se o sintagma flexional - SF - e a flexão verbal \emph{eu}, afixo do pretérito de
+\emph{comer}, encontra-se deslocada à esquerda do verbo e é anterior
+ao sintagma verbal. Tal flexão possui um nível a mais para indicar o
+tempo em que acontece o SV.
+ 
+O conjunto de regras para obter uma estrutura superficial, que seja
+mais simples,  chama-se \emph{transformação}. Aplicando tais
+transformações, podemos obter:
+
+\Tree [.F \qroof{A formiga}.SN [.SN [.V comer ] \qroof{a folha}.SN ] ]
+
+A transformação mais simples é a \emph{supressão de sujeito idêntico}
+(SSI), relatada por \cite{perini76}, que consiste em suprimir o sujeito de uma
+oração subordinada quando este for idêntico a qualquer outro SN
+presente na oração. Na frase:
+
+\begin{itemize}
+\item $[$Antônio querer $[$Antônio sambar com a Portela$] ]$
+\end{itemize}
+
+Com a SSI, a frase ficaria simplificada em:
+\begin{itemize}
+\item $[$Antônio quer sambar com a Portela$]$
+\end{itemize}
+
+
+%Fechamento
+Neste capítulo, revisamos conceitos da gramática portuguesa. Vimos que as orações podem pertencer a períodos simples e compostos. Também estudamos brevemente a Gramática Gerativa e vimos como a Análise de Constituintes nos permitiu apreciar a riqueza sintática contida em uma simples oração. No próximo capítulo descrevemos os experimentos e finalmente concretizamos dentro de uma GR o estudado até aqui sobre análise sintática .
+

@@ -1,0 +1,467 @@
+\begin{thebibliography}{61}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bas\'egio(2006)]{basegio:06}{\bf Bas\'egio(2006)}
+T\'ulio~Lima Bas\'egio.
+\newblock {Uma Abordagem Semi-autom\'atica para Identifica\c{c}\~ao de
+  Estruturas Ontol\'ogicas a partir de Textos na L\'ingua Portuguesa do
+  Brasil}.
+\newblock Disserta\c{c}\~{a}o de Mestrado, Pontificia Universidade Cat\'olica
+  do Rio Grande do Sul, Rio Grande do Sul.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Bechara(2009)]{bechara}{\bf Bechara(2009)}
+Evanildo Bechara.
+\newblock \emph{Moderna Gram\'atica Portuguesa, atualizada pelo novo Acordo
+  Ortogr\'afico}.
+\newblock 37 edi\c{c}\~{a}o.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Berners-Lee e Fischetti(1999)]{Barners99}{\bf Berners-Lee e
+  Fischetti(1999)}
+Tim Berners-Lee e Mark Fischetti.
+\newblock \emph{Weaving the Web : The Original Design and Ultimate Destiny of
+  the World Wide Web by its Inventor}.
+\newblock {Harper San Francisco}.
+\newblock ISBN 0062515861.
+\newblock URL
+  \url{http://www.amazon.com/exec/obidos/redirect?tag=citeulike07-20&path=ASIN/0062515861}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Bick(2000)]{bick2000}{\bf Bick(2000)}
+E.~Bick.
+\newblock \emph{{The Parsing System" Palavras": Automatic Grammatical Analysis
+  of Portuguese in a Constraint Grammar Framework}}.
+\newblock Aarhus University Press.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Blomqvist(2005)]{fully-automatic}{\bf Blomqvist(2005)}
+Eva Blomqvist.
+\newblock Fully automatic construction of enterprise ontologies using design
+  patterns: Initial method and first experiences.
+\newblock Em \emph{OTM Conferences (2)}, p\'{a}ginas 1314--1329.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Botero e Ricarte(2008)]{botero08}{\bf Botero e Ricarte(2008)}
+Sergio~William Botero e Ivan L.~M. Ricarte.
+\newblock Extra\c{c}\~ao de rela\c{c}\~oes sem\^anticas via an\'alise de
+  correla\c{c}\~ao de termos em documentos.
+\newblock Em \emph{Brazilian Symposium in Information and Human Language
+  Technology - STIL}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Brank {\rm{\em et~al.}}(2005)Brank, Grobelnik, e
+  Mladenic]{Brank05asurvey}{\bf Brank {\rm{\em et~al.}}(2005)}
+Janez Brank, Marko Grobelnik e Dunja Mladenic.
+\newblock A survey of ontology evaluation techniques.
+\newblock Em \emph{In In Proceedings of the Conference on Data Mining and Data
+  Warehouses (SiKDD 2005}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Cabr\'e(1999)]{term-cabre}{\bf Cabr\'e(1999)}
+M.~T. Cabr\'e.
+\newblock \emph{La terminologia: representaci\'on y comunicaci\'on}, volume 1a
+  ed.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Chomsky(1957)]{chomsky1957}{\bf Chomsky(1957)}
+N.~Chomsky.
+\newblock \emph{Syntactic structures}.
+\newblock Janua linguarum: Series minor. Mouton.
+\newblock URL \url{http://books.google.com.br/books?id=55YaAAAAIAAJ}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Cimiano(2006)]{cimiano}{\bf Cimiano(2006)}
+Philipp Cimiano.
+\newblock \emph{Ontology Learning and Population from Text: Algorithms,
+  Evaluation and Applications}.
+\newblock Springer-Verlag New York, Inc., Secaucus, NJ, USA.
+\newblock ISBN 0387306323.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Cimiano e Volk\"oer(2005)]{Cimiano05text2onto}{\bf Cimiano e
+  Volk\"oer(2005)}
+Philipp Cimiano e Johanna Volk\"oer.
+\newblock Text2onto - a framework for ontology learning and data-driven change
+  discovery, 2005.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Cimiano {\rm{\em et~al.}}(2003)Cimiano, Staab, e
+  Tane]{cimiano2003automatic}{\bf Cimiano {\rm{\em et~al.}}(2003)}
+Philipp Cimiano, Steffen Staab e Julien Tane.
+\newblock Automatic acquisition of taxonomies from text: Fca meets nlp.
+\newblock Em \emph{Proceedings of the ECML / PKDD Workshop on Adaptive Text
+  Extraction and Mining}, p\'{a}ginas 10--17, Cavtat-Dubrovnik, Croatia.
+\newblock URL
+  \url{http://www.dcs.shef.ac.uk/~fabio/ATEM03/cimiano-ecml03-atem.pdf}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Colombo e Rahal(2009)]{jucimara09}{\bf Colombo e Rahal(2009)}
+Jucimara Colombo e Paula Rahal.
+\newblock Altera\c{c}\~oes gen\'eticas em c\^ancer de cabe\c{c}a e pesco\c{c}o.
+\newblock \emph{Revista Brasileira de Cancerologia}, p\'{a}ginas 165--174.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Costa-Campos e Xavier(1991)]{costa-campos91}{\bf Costa-Campos e
+  Xavier(1991)}
+Maria~Henriqueta Costa-Campos e Maria~Francisca Xavier.
+\newblock \emph{Sintaxe e Sem\^antica do Portugu\^es}.
+\newblock Universidade Aberta.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Deane(2005)]{phrasalterm}{\bf Deane(2005)}
+Paul Deane.
+\newblock A nonparametric method for extraction of candidate phrasal terms.
+\newblock Em \emph{ACL '05: Proceedings of the 43rd Annual Meeting on
+  Association for Computational Linguistics}, p\'{a}ginas 605--613, Morristown,
+  NJ, USA. Association for Computational Linguistics.
+\newblock \doi{http://dx.doi.org/10.3115/1219840.1219915}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Dellschaft e Staab(2008)]{dellschaft08}{\bf Dellschaft e Staab(2008)}
+Klaas Dellschaft e Steffen Staab.
+\newblock Strategies for the evaluation of ontology learning.
+\newblock Em \emph{Proceedings of the 2008 conference on Ontology Learning and
+  Population: Bridging the Gap between Text and Knowledge}, p\'{a}ginas
+  253--272, Amsterdam, The Netherlands, The Netherlands. IOS Press.
+\newblock ISBN 978-1-58603-818-2.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1563823.1563842}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Drumond e Girardi(2008)]{survey-ol}{\bf Drumond e Girardi(2008)}
+Lucas Drumond e Rosario Girardi.
+\newblock A survey of ontology learning procedures.
+\newblock Em \emph{WONTO}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Duan {\rm{\em et~al.}}(2009)Duan, Li, e Hu]{mwe}{\bf Duan {\rm{\em
+  et~al.}}(2009)}
+Jianyong Duan, Ru~Li e Yi~Hu.
+\newblock A bio-inspired application of natural language processing: A case
+  study in extracting multiword expression.
+\newblock \emph{Expert Syst. Appl.}, 36\penalty0 (3):\penalty0 4876--4883.
+\newblock ISSN 0957-4174.
+\newblock \doi{http://dx.doi.org/10.1016/j.eswa.2008.05.046}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Forgy(1982)]{Forgy82aij}{\bf Forgy(1982)}
+Charles Forgy.
+\newblock Rete: A fast algorithm for the many pattern/many object pattern match
+  problem.
+\newblock \emph{Artificial Intelligences}, 19\penalty0 (1):\penalty0 17--37.
+\newblock ISSN 0004-3702.
+\newblock URL \url{http://dx.doi.org/10.1016/0004-3702(82)90020-0}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Frantzi {\rm{\em et~al.}}(1998)Frantzi, Ananiadou, e
+  Tsujii]{frantzi98}{\bf Frantzi {\rm{\em et~al.}}(1998)}
+Katerina Frantzi, Sophia Ananiadou e Junichi Tsujii.
+\newblock The c-value/nc-value: Method of automatic recognition for multi-word
+  terms.
+\newblock Em \emph{Research and Advanced Technology for Digital Libraries},
+  volume 1513 of \emph{Lecture Notes in Computer Science}, p\'{a}ginas
+  520--520. Springer Berlin / Heidelberg.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Freitas(2007)]{claudiaFreitas07}{\bf Freitas(2007)}
+Maria Cl\'audia~De Freitas.
+\newblock \emph{Elabora\c{c}\~ao autom\'atica de ontologias de dom\'inio.
+  Discuss\~ao e resultados}.
+\newblock Tese de Doutorado, Pontificia Universidade Cat\'olica do Rio de
+  Janeiro.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Ganter(1984)]{Ganter84}{\bf Ganter(1984)}
+Bernhard Ganter.
+\newblock Two basic algorithms in concept analysis.
+\newblock FB4--Preprint 831, TH Darmstadt.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Ganter e Wille(1999)]{ganter1999formal}{\bf Ganter e Wille(1999)}
+Bernhard Ganter e Rudolph Wille.
+\newblock \emph{Formal concept analysis: Mathematical foundations}.
+\newblock Springer, Berlin-Heidelberg.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Godin {\rm{\em et~al.}}(1991)Godin, Missaoui, e Alaoui]{galicia}{\bf
+  Godin {\rm{\em et~al.}}(1991)}
+R.~Godin, R.~Missaoui e H.~Alaoui.
+\newblock Learning algorithms using a galois lattice structure.
+\newblock Em \emph{Tools for Artificial Intelligence, 1991. TAI '91., Third
+  International Conference on}, p\'{a}ginas 22 --29.
+\newblock \doi{10.1109/TAI.1991.167072}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Grefenstette(1997)]{grefenstette97}{\bf Grefenstette(1997)}
+Gregory Grefenstette.
+\newblock Sqlet: Short query linguistic expansion techniques, palliating
+  one-word queries by providing intermediate structure to text.
+\newblock Em \emph{In Proceedings of the RIAO'97}, p\'{a}ginas 500--509.
+  Springer Verlag.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Gruber(1993)]{Gruber93}{\bf Gruber(1993)}
+Thomas~R. Gruber.
+\newblock A translation approach to portable ontology specifications.
+\newblock \emph{Knowl. Acquis.}, 5\penalty0 (2):\penalty0 199--220.
+\newblock ISSN 1042-8143.
+\newblock \doi{10.1006/knac.1993.1008}.
+\newblock URL \url{http://dx.doi.org/10.1006/knac.1993.1008}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Haav(2004)]{Haav04asemi-automatic}{\bf Haav(2004)}
+{Hele-mai} Haav.
+\newblock A semi-automatic method to ontology design by using fca.
+\newblock Em \emph{University of Ostrava, Department of Computer Science}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Harris(1968)]{harris1968}{\bf Harris(1968)}
+Z.S. Harris.
+\newblock \emph{{Mathematical structures of language}}.
+\newblock Wiley.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Hearst(1992)]{Hearst92automaticacquisition}{\bf Hearst(1992)}
+Marti~A. Hearst.
+\newblock Automatic acquisition of hyponyms from large text corpora.
+\newblock Em \emph{In Proceedings of the 14th International Conference on
+  Computational Linguistics}, p\'{a}ginas 539--545.   {\scriptsize Citado na
+  p\'{a}g.}
+
+\bibitem[Hitzler(2011)]{Hitzler011}{\bf Hitzler(2011)}
+Pascal Hitzler.
+\newblock What's happening in semantic web: and what fca could have to do with
+  it.
+\newblock Em \emph{Proceedings of the 9th international conference on Formal
+  concept analysis}, ICFCA'11, p\'{a}ginas 18--23, Berlin, Heidelberg.
+  Springer-Verlag.
+\newblock ISBN 978-3-642-20513-2.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=2008557.2008560}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Ivan~Kostial(2003)]{Kostial03i.:ontology-based}{\bf
+  Ivan~Kostial(2003)}
+Jan~Paralic Ivan~Kostial.
+\newblock I.: Ontology-based information retrieval.
+\newblock \emph{Information and Intelligent Systems, Croatia}, p\'{a}ginas
+  23--28.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Jean-Pierre {\rm{\em et~al.}}(1997)Jean-Pierre, Ait-mokhtar, e pierre
+  Chanod]{subject-object97}{\bf Jean-Pierre {\rm{\em et~al.}}(1997)}
+Salah Ayt-Mokhtar Jean-Pierre, Salah Ait-mokhtar e Jean pierre Chanod.
+\newblock Subject and object dependency extraction using finite-state
+  transducers.
+\newblock Em \emph{In Proceedings of the ACL/EACL'97 Workshop on Automatic
+  Information Extraction and Building of Lexical Semantic Resources},
+  p\'{a}ginas 71--77.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Karlsson(1995)]{karlsson1995constraint}{\bf Karlsson(1995)}
+F.~Karlsson.
+\newblock \emph{Constraint Grammar: A Language-Independent System for Parsing
+  Unrestricted Text}.
+\newblock Natural Language Processing. Mouton De Gruyter.
+\newblock ISBN 9783110141795.
+\newblock URL \url{http://books.google.com.br/books?id=70IvVPlH63cC}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Kinoshita {\rm{\em et~al.}}(2007)Kinoshita, Salvador, e
+  Menezes]{cogroo}{\bf Kinoshita {\rm{\em et~al.}}(2007)}
+Jorge Kinoshita, Lais~N. Salvador e Carlos E.~D. Menezes.
+\newblock Cogroo - an openoffice grammar checker.
+\newblock Em \emph{Proceedings of the Seventh International Conference on
+  Intelligent Systems Design and Applications}, p\'{a}ginas 525--530,
+  Washington, DC, USA. IEEE Computer Society.
+\newblock ISBN 0-7695-2976-3.
+\newblock URL \url{http://portal.acm.org/citation.cfm?id=1317534.1318289}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Lacerda-Dias(2004)]{kea-portugues}{\bf Lacerda-Dias(2004)}
+Maria~Abadia Lacerda-Dias.
+\newblock Extra\c{c}\~ao autom\'atica de palavras-chave na l\'ingua portuguesa
+  aplicada a disserta\c{c}\~oes e teses da \'area das engenharias.
+\newblock Disserta\c{c}\~{a}o de Mestrado, Universidade Estadual de Campinas -
+  UNICAMP.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Lagunilla e Rebollo(2004)]{generativa}{\bf Lagunilla e Rebollo(2004)}
+Mariana~Fern\'andez Lagunilla e Alberto~Anula Rebollo.
+\newblock \emph{Sintaxis y Cognici\'on: Introducci\'on a la gram\'atica
+  generativa}.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Lopez {\rm{\em et~al.}}(1997)Lopez, Perez, e
+  Juristo]{methontology}{\bf Lopez {\rm{\em et~al.}}(1997)}
+Mariano~F. Lopez, Asuncion~G. Perez e Natalia Juristo.
+\newblock {METHONTOLOGY: from Ontological Art towards Ontological Engineering}.
+\newblock Em \emph{Proceedings of the AAAI97 Spring Symposium}, p\'{a}ginas
+  33--40, Stanford, USA.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Lozano-Tello(2002)]{Lozano02Metrica}{\bf Lozano-Tello(2002)}
+Adolfo Lozano-Tello.
+\newblock \emph{M\'etrica de Idoneidad de Ontolog\'ias}.
+\newblock Tese de Doutorado, Universidad de Extremadura, Escuela Polit\'ecnica
+  de C\'aceres, Departamento de Inform\'atica.   {\scriptsize Citado na
+  p\'{a}g.}
+
+\bibitem[Maedche e Staab(2001)]{ol-semantic-web}{\bf Maedche e Staab(2001)}
+Alexander Maedche e Steffen Staab.
+\newblock Ontology learning for the semantic web.
+\newblock \emph{IEEE Intelligent Systems}, 16\penalty0 (2):\penalty0 72--79.
+\newblock ISSN 1541-1672.
+\newblock \doi{http://dx.doi.org/10.1109/5254.920602}.   {\scriptsize Citado na
+  p\'{a}g.}
+
+\bibitem[Maria~da Gra\c{c}a~Krieger(2004)]{term-krieger}{\bf Maria~da
+  Gra\c{c}a~Krieger(2004)}
+Maria Jos\'e Bocorny~Finatto Maria~da Gra\c{c}a~Krieger.
+\newblock \emph{Introdu\c{c}\~ao a Terminologia: teoria \& pr\'atica}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Mizoguchi(2003)]{riichiro03}{\bf Mizoguchi(2003)}
+Riichiro Mizoguchi.
+\newblock Part 1: introduction to ontological engineering.
+\newblock \emph{New Gen. Comput.}, 21\penalty0 (4):\penalty0 365--384.
+\newblock ISSN 0288-3635.
+\newblock \doi{http://dx.doi.org/10.1007/BF03037311}.   {\scriptsize Citado na
+  p\'{a}g.}
+
+\bibitem[Noy e Mcguinness(2001)]{Noy2001}{\bf Noy e Mcguinness(2001)}
+Natalya~F. Noy e Deborah~L. Mcguinness.
+\newblock Ontology development 101: A guide to creating your first ontology.
+\newblock Online, 2001.
+\newblock URL
+  \url{http://www.ksl.stanford.edu/people/dlm/papers/ontology101/ontology101-noy-mcguinness.html}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Pantel e Lin(2001)]{pantel01}{\bf Pantel e Lin(2001)}
+Patrick Pantel e Dekang Lin.
+\newblock A statistical corpus-based term extractor.
+\newblock Em \emph{AI '01: Proceedings of the 14th Biennial Conference of the
+  Canadian Society on Computational Studies of Intelligence}, p\'{a}ginas
+  36--46, London, UK. Springer-Verlag.
+\newblock ISBN 3-540-42144-0.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Peng e Zhao(2007)]{peng07}{\bf Peng e Zhao(2007)}
+Xin Peng e Wenyun Zhao.
+\newblock An incremental and fca-based ontology construction method for
+  semantics-based component retrieval.
+\newblock Em \emph{QSIC, Seventh Quality Software International Conference},
+  p\'{a}ginas 309--315.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Perini(1976)]{perini76}{\bf Perini(1976)}
+M\'ario~A. Perini.
+\newblock \emph{A Gram\'atica Gerativa; Introdu\c{c}\~ao ao Estudo da Sintaxe
+  Portuguesa}.
+\newblock Belo Horizonte.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Ribeiro-Junior(2008)]{Luiz:Carlos:08}{\bf Ribeiro-Junior(2008)}
+Luiz~Carlos Ribeiro-Junior.
+\newblock {OntoLP: Constru\c{c}\~ao Semi-Autom\'atica de Ontologias a partir de
+  Textos da L\'ingua Portuguesa}.
+\newblock Disserta\c{c}\~{a}o de Mestrado, Universidade do Vale do Rio dos
+  Sinos, S\~ao Leopoldo.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Ruwet(1975)]{ruwet75}{\bf Ruwet(1975)}
+Nicolas Ruwet.
+\newblock \emph{Introdu\c{c}\~ao \`a Gram\'atica Gerativa}.
+\newblock Universidade de S\~ao Paulo.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Sag {\rm{\em et~al.}}(2001)Sag, Baldwin, Bond, Copestake, e
+  Flickinger]{Sag01mwe}{\bf Sag {\rm{\em et~al.}}(2001)}
+Ivan~A. Sag, Timothy Baldwin, Francis Bond, Ann Copestake e Dan Flickinger.
+\newblock Multiword expressions: A pain in the neck for nlp.
+\newblock Em \emph{In Proc. of the 3rd International Conference on Intelligent
+  Text Processing and Computational Linguistics (CICLing-2002}, p\'{a}ginas
+  1--15.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[S\'anchez(2009)]{sanchez09}{\bf S\'anchez(2009)}
+David S\'anchez.
+\newblock Domain ontology learning from the web.
+\newblock \emph{The Knowledge Engineering Review}, 24\penalty0 (04):\penalty0
+  413.
+\newblock URL
+  \url{http://www.journals.cambridge.org/abstract_S0269888909990300}.
+  {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Schutz e Buitelaar(2005)]{schutz-buitelaar05}{\bf Schutz e
+  Buitelaar(2005)}
+Er~Schutz e Paul Buitelaar.
+\newblock Relext: A tool for relation extraction from text in ontology
+  extension.
+\newblock Em \emph{In: Proceedings of the 4th International Semantic Web
+  Conference (ISWC). (2005}, p\'{a}gina~05.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Shamsfard e Abdollahzadeh~Barforoush(2003)]{shamsfard}{\bf Shamsfard e
+  Abdollahzadeh~Barforoush(2003)}
+Mehrnoush Shamsfard e Ahmad Abdollahzadeh~Barforoush.
+\newblock The state of the art in ontology learning: a framework for
+  comparison.
+\newblock \emph{Knowl. Eng. Rev.}, 18\penalty0 (4):\penalty0 293--316.
+\newblock ISSN 0269-8889.
+\newblock \doi{http://dx.doi.org/10.1017/S0269888903000687}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Shearer {\rm{\em et~al.}}(2008)Shearer, Motik, e
+  Horrocks]{smh08HermiT}{\bf Shearer {\rm{\em et~al.}}(2008)}
+Rob Shearer, Boris Motik e Ian Horrocks.
+\newblock Hermit: A highly-efficient owl reasoner.
+\newblock Em Alan Ruttenberg, Ulrile Sattler e Cathy Dolbear, editors,
+  \emph{Proc. of the 5th Int. Workshop on OWL: Experiences and Directions
+  (OWLED 2008 EU)}, Karlsruhe, Germany.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Silva e Koch(2001)]{koch2001}{\bf Silva e Koch(2001)}
+Maria Cecilia Perez De Souza~E Silva e Ingedore Grunfeld~Villa\c{c}a Koch.
+\newblock \emph{Ling\"u\`istica aplicada ao portugu\^es: sintaxe}.
+\newblock S\~ao Paulo.
+\newblock ISBN 85-249-0204-3.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Sirin {\rm{\em et~al.}}(2007)Sirin, Parsia, Grau, Kalyanpur, e
+  Katz]{pellet}{\bf Sirin {\rm{\em et~al.}}(2007)}
+Evren Sirin, Bijan Parsia, Bernardo~Cuenca Grau, Aditya Kalyanpur e Yarden
+  Katz.
+\newblock Pellet: A practical owl-dl reasoner.
+\newblock \emph{J. Web Sem.}, 5\penalty0 (2):\penalty0 51--53.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Staab e Studer(2004)]{baader04}{\bf Staab e Studer(2004)}
+Steffen Staab e Rudi Studer.
+\newblock \emph{Handbook on Ontologies}, chapter~1, p\'{a}ginas 1--23.
+\newblock International Handbooks on Information Systems. Springer.
+\newblock ISBN 3-540-40834-7.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Tomokiyo e Hurst(2003)]{keyphrase1}{\bf Tomokiyo e Hurst(2003)}
+Takashi Tomokiyo e Matthew Hurst.
+\newblock A language model approach to keyphrase extraction.
+\newblock Em \emph{Proceedings of the ACL 2003 workshop on Multiword
+  expressions}, p\'{a}ginas 33--40, Morristown, NJ, USA. Association for
+  Computational Linguistics.
+\newblock \doi{http://dx.doi.org/10.3115/1119282.1119287}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Vrande\v{c}i\'c(2010)]{ontologyevaluation10}{\bf
+  Vrande\v{c}i\'c(2010)}
+Denny Vrande\v{c}i\'c.
+\newblock \emph{Ontology Evaluation}.
+\newblock Tese de Doutorado, KIT, Fakult{\"a}t f{\"u}r
+  Wirtschaftswissenschaften, Karlsruhe.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Wang e He(2006)]{Wang:2006}{\bf Wang e He(2006)}
+Jian Wang e Keqing He.
+\newblock Towards representing fca-based ontologies in semantic web rule
+  language.
+\newblock Em \emph{Proceedings of the Sixth IEEE International Conference on
+  Computer and Information Technology}, CIT '06, p\'{a}ginas 41--, Washington,
+  DC, USA. IEEE Computer Society.
+\newblock ISBN 0-7695-2687-X.
+\newblock \doi{http://dx.doi.org/10.1109/CIT.2006.186}.
+\newblock URL \url{http://dx.doi.org/10.1109/CIT.2006.186}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\bibitem[Wille(1982)]{Wille82}{\bf Wille(1982)}
+Rudolf Wille.
+\newblock Restructuring lattice theory: an approach based on hierarchies of
+  concepts.
+\newblock Em Ivan Rival, editor, \emph{Ordered sets}, p\'{a}ginas 445--470,
+  Dordrecht--Boston. Reidel.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Wray(2002)]{formulaic}{\bf Wray(2002)}
+Alison Wray.
+\newblock \emph{Formulaic Language and the Lexicon}.
+\newblock Cambridge University Press.   {\scriptsize Citado na p\'{a}g.}
+
+\bibitem[Yang e Callan(2008)]{metric-ontology}{\bf Yang e Callan(2008)}
+Hui Yang e Jamie Callan.
+\newblock Metric-based ontology learning.
+\newblock Em \emph{ONISW '08: Proceeding of the 2nd international workshop on
+  Ontologies and nformation systems for the semantic web}, p\'{a}ginas 1--8,
+  New York, NY, USA. ACM.
+\newblock ISBN 978-1-60558-255-9.
+\newblock \doi{http://doi.acm.org/10.1145/1458484.1458486}.   {\scriptsize
+  Citado na p\'{a}g.}
+
+\end{thebibliography}

@@ -1,0 +1,167 @@
+%% ------------------------------------------------------------------------- %%
+\chapter{Conclusões}
+\label{cap:conclusoes}
+
+
+\section{Discussões}
+Nesta seção, discutimos as ontologias que obtivemos através do nosso método.
+\subsection*{Sobre Métodos Ágeis}
+  Dois exemplos ótimos encontrado foram de \textbf{Cliente} e \textbf{Programador}
+  
+  \begin{center}
+    \begin{tabular}{rcp{10cm}}
+      \texttt{Cliente} & $\equiv$ & 
+    	\texttt{Figura\_Criativo} $\sqcap$ \texttt{Fundamental} $\sqcap$ \texttt{Escopo}
+    	$\sqcap$ \texttt{Razão} $\sqcap$ \texttt{Versão} \\[5mm]
+    	
+      \texttt{Cliente} & $\sqsubseteq$ & 
+    	\emph{colaborar} \texttt{Processo} $\sqcup$ 
+    	\emph{conseguir\_mudar} \texttt{Tecnologia} $\sqcup$ 
+		\emph{estar} \texttt{Feliz\_Com\_O\_Software} $\sqcup$
+		\emph{estar} \texttt{Rio\_De\_Janeiro} $\sqcup$
+		\emph{estar\_aprender}  \texttt{Desenvolvedor} $\sqcup$
+		\emph{estar\_aprender} \texttt{Sistema} $\sqcup$
+		\emph{mudar} \texttt{Ideia} $\sqcup$
+		\emph{pedir} \texttt{Sexto\_Feira} $\sqcup$
+		\emph{pedir} \texttt{Sistema\_De\_Web} $\sqcup$
+		\emph{solicitar} \texttt{Funcionalidade} $\sqcup$
+		\emph{ter} \texttt{Mente} $\sqcup$
+		\emph{ter} \texttt{Razão} \\ [8mm]
+		
+	  \texttt{Programador} & $\sqsubseteq$  &	 \textit{acreditar} \texttt{Método\_Ágil} \\[5mm]
+	  \texttt{Programador} & $\neq$ & 
+	  			\emph{entender} \texttt{Pessoal} $\sqcap$
+	  			\emph{entender} \texttt{Regra\_De\_Negócio}
+    \end{tabular}
+  \end{center}
+  
+  \begin{itemize}
+    \item Ressaltamos estes dois exemplos pois na verdade, o foco das palestras era explicar o papel das pessoas (clientes e programadores) no processo de desenvolvimento.
+    
+    \item Das relações de equivalência encontradas, as primeiras parecem corretas, mas \texttt{Razão} não parece. No entanto, é possível que uma empresa suponha corretamente que ``a \emph{razão} da empresa é o \emph{cliente}'' e isso validaria a equivalência.  Finalmente  \texttt{Escopo} e \texttt{Versão} não parecem ser equivalentes ao conceito de \texttt{Cliente}.
+    
+    \item Algumas relações taxonômicas só são verdade para casos específicos, por exemplo, \emph{estar} \texttt{Feliz\_Com\_O\_Software} e \emph{estar} \texttt{Rio\_De\_Janeiro}.  Outras relações só fazem sentido em um determinado contexto, por exemplo, \emph{ter} \texttt{Mente} só faz sentido na sentença "o \emph{cliente} tem em mente uma ideia do que quer", mas mesmo assim, tal frase não justifica a necesidade de estabelecer essa relação.
+  \end{itemize}
+
+  
+  
+\subsection*{Sobre Branca de Neve}
+Um conceito interessante para analisar é a \texttt{Pele}, a qual possui as seguintes equivalências:
+\begin{center}
+	\begin{tabular}{rcp{10cm}}
+		\texttt{Pele} & $\equiv$ & \texttt{Cabelo\_Preto} $\sqcap$ \texttt{Lábio\_Vermelho} $\sqcap$ \texttt{Neve}
+	\end{tabular}
+\end{center}
+
+Tais equivalências foram encontradas a partir da frase:
+\begin{verbatim}
+Sua pele era branca como a neve, os lábios vermelhos como o sangue e
+os cabelos pretos como o ébano.
+\end{verbatim}
+
+Na frase, \texttt{Pele} foi reconhecido como sujeito, \textbf{era} como verbo, e o predicado foi considerado como uma sequência de conceitos, estabelecendo uma relação de equivalência com o sujeito.
+
+\subsection*{Sobre Doença do Câncer}
+Encontramos comentários muito interessantes de um especialista, que comentou algumas relações:
+
+\begin{center}
+	\begin{tabular}{rcp{10cm}}
+	  \texttt{Aquisição\_De\_Um\_Fenótipo\_Angiogênico} & $\equiv$ & \texttt{Ocorrer\_Tumor}
+	\end{tabular}
+\end{center}
+
+  \begin{verbatim}
+    "fenótipo angiogênico é a característica de alguns tumores em que 
+    há criação de novos vasos sanguíneos. Os dois termos não são 
+    equivalentes, mas definitivamente estão relacionados."
+  \end{verbatim}
+  
+\begin{center}
+	\begin{tabular}{rcp{10cm}}
+	  \texttt{Fumo} & $\sqsubseteq$ & \emph{constituir}  \texttt{Câncer\_de\_Pescoço}
+	\end{tabular}
+\end{center}
+
+  \begin{verbatim}
+  "de fato, um dos fatores mais importantes para câncer de pescoço  
+  (e todos os de cabeça)  é o fumo."
+  \end{verbatim}
+  
+\begin{center}
+	\begin{tabular}{rcp{10cm}}
+	  \texttt{Tumor} & $\sqsubseteq$ &
+	  		\emph{adquirir}  \texttt{Propriedade\_Invasiva} $\sqcup$  
+	  		\emph{apresentar}  \texttt{Estadiamento\_Clínico}
+	\end{tabular}
+\end{center}
+   
+   \begin{verbatim}
+   "bem interessante; Estadiamento clínico é uma variável que é 
+   determinada pelo médico para avaliar a gravidade de um tumor; 
+   e o tumor (benigno) que adquire propriedades invasivas torna-se 
+   um câncer (maligno)."
+   \end{verbatim}
+
+
+
+%------------------------------------------------------
+\section{Considerações Finais} 
+
+\begin{itemize}
+\item A extração de termos no final não representou um elemento principal
+no trabalho, pois se quisermos ser mais precisos perderemos muitos
+termos importantes. Por exemplo, é impossível criar uma ontologia de
+métodos ágeis com apenas 10 termos, são necessários mais.
+
+\item A tese foi tratada de forma multidisciplinar, abrangendo temas
+  sobre estatística, linguística, grafos e ontologias.
+
+\item De forma similar ao trabalho de \cite{subject-object97}, a
+  imprecisão dos resultados deve-se a diferentes fontes
+  de erros:
+  \begin{itemize}
+  \item Erros por causa do Cogroo, por exemplo:
+  	\begin{itemize}
+  	  \item Um erro muito comum era a identificação do advérbio \emph{aí} como substantivo.
+  	  Porém, tal erro era correto em frases como:  \emph{Deixarei a nota \textbf{aí}}.
+  	  \item Outro erro frequente era a identificação da palavra \emph{pode} como conjugação do verbo \textbf{podar}, enquanto o verbo correto deveria ser  \textbf{poder}.
+  	\end{itemize}
+  	
+  \item Erros por causa da fonte:
+  	 \begin{itemize}
+  	    \item O texto de Métodos Ágeis possui muitas estruturas informais por serem parte de uma palestra, o que dificulta o processo de aprendizado. Como por exemplo: "\emph{A, isso que eu chamo colaborar}". "\emph{Vamos tocar o barco}".
+  	 \end{itemize}
+  \end{itemize}
+\item Reforçamos o problema de não ter tido ferramentas prontas para a
+  extração de termos, reconhecimentos de relações, etc.
+  
+\item Os resultados que apreciamos na Tabela \ref{tab:resultados-ontometrics} mostram que as ontologias retornadas por nosso método foram avaliadas positivamente pelos especialistas. As duas ontologias para a doença do Câncer obtiveram os valores mais baixos, porém os comentários dos especialistas indicaram que houve coisas pontuais que relatavam fatos verdadeiros sobre o tema e que davam valor a nossos resultados.
+
+\item O desafio inicial foi atingido, que consistia em propor uma ferramenta
+  que conseguisse extrair uma ontologia de um texto não de forma
+  automática e soberana, mas sim de forma supervisionada e dependente de
+  um especialista. O resultado foi uma ontologia inicial sem
+  instâncias que, de forma simples, descreve certas características do
+  domínio analisado.
+\end{itemize}
+%------------------------------------------------------
+\section{Sugestões para Pesquisas Futuras} 
+
+Acreditamos que a descoberta de relações requer uma maior atenção. Os
+recursos linguísticos são muito extensos, existem diferentes
+gramáticas e diferentes formalismos. Um melhor estudo dessa informação
+de um ponto de vista prático seria necessário. Assim como o tema de
+ontologias foi revivido em 2004 a partir de conceitos filosóficos
+muito anteriores à época, acreditamos que a representação de
+conhecimento poderia ser muito mais enriquecida se aplicássemos mais a
+teoria linguística.
+
+Também pensamos que uma fonte de informação semântica seria muito
+útil, mas não apenas um dicionário como o \textit{Amazonas}, se não um
+léxico. Um léxico poderia abrir muito mais os caminhos das pesquisas
+relacionadas com a representação de conhecimento.
+
+Finalmente, a tradução do reticulado a uma forma de ontologia não foi
+estudada apropriadamente, ela requer ainda um estudo mais
+profundo. Vimos que com diferentes critérios, podemos criar diferentes
+ontologias.

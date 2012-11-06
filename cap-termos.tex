@@ -1,0 +1,294 @@
+\chapter{Extração de Termos}
+\label{chap:termos}
+
+Segundo \cite{term-cabre} e \cite{term-krieger}, um termo é uma unidade léxica que possui um significado concreto dentro de um certo domínio. Ele pode
+ser considerado também como uma expressão multipalavra (EMP), definida por \cite{Sag01mwe} como um conjunto de palavras que possuem um significado próprio e cuja
+frequência em certo texto tem caráter idiossincrático.
+
+Um sinônimo estabelecido por \cite{formulaic} a estas expressões multipalavras é o de \textit{sequências formulaic}, que são definidas como:
+   \textit{uma sequência, contínua ou descontínua,
+  de palavras ou outros elementos, os quais são, ou parecem,
+  pré-fabricados: isto é, armazenados e recuperados totalmente da
+  memória no momento do uso, ao invés de serem sujeitos à
+  generalização ou análise pela gramática da linguagem.}
+
+
+De acordo com \cite{Sag01mwe} existem dois tipos de EMP:
+
+\begin{description}
+\item[Frases léxicas - ] as quais possuem sintaxe ou semântica
+  idiossincrática, ou contêm palavras que não ocorrem em
+  isolamento. As expressões multipalavras deste tipo podem ser:
+  \begin{itemize}
+  \item Expressões idiomáticas, também chamadas expressões populares:
+    Caracterizam-se por não ter um significado literal como por
+    exemplo gírias: ``show de bola''.
+  \item Compostos nominais: ``centro estadual de educação
+    tecnológica''.
+  \item Nomes próprios: ``Instituto de Matemática e Estatística''.
+  \item Construções verbais: ``dar é melhor que receber''.
+  \item Verbos de suporte: ``Tomar banho'' ou ``Pôr em risco''.
+  \end{itemize}
+\item[Frases institucionalizadas - ] são construções semânticas e
+  sintáticas, mas estatisticamente idiossincráticas. Por exemplo em 
+  ``banco de dados'', as palavras ``banco'' e ``dados'' possuem
+  significado próprio, mas juntas possuem outro significado próprio.
+\end{description}
+
+
+O trabalho de \cite{mwe} propôs um método híbrido para identificar
+EMPs a partir de documentos em inglês. Tal método usa processamento de
+linguagem natural para extrair a informação gramatical de cada
+palavra, e aplica uma técnica de alinhamento de sequências para obter
+aqueles segmentos mais similares entre todas elas.
+
+Quando testamos esta técnica em um documento sobre métodos ágeis de
+desenvolvimento de \textit{software}, obtivemos vários segmentos muito compridos,
+como o seguinte:
+
+\begin{verbatim}
+Então se você tem um método que prevê , que se baseia em achar, dá
+para prever o futuro, então você já tem um problema em desenvolvimento  
+de software ...
+\end{verbatim}
+
+Segmentos como o anterior foram encontrados em todo o texto, e isso
+deveu-se ao fato de que muitas palavras, com pontuação elevada, estavam dentro
+de tais segmentos, por exemplo \emph{método}, \emph{desenvolvimento} e
+\textit{software}.
+
+Reduzir tais EMPs a simples termos demandaria um grande esforço e, sobretudo, tempo, o que não é justificável já que existem outros
+métodos mais diretos.
+
+\section{Métodos para extração de termos}
+A maioria dos trabalhos usam técnicas estatísticas para extrair os
+termos. Por exemplo o trabalho de \cite{pantel01} apresenta uma
+métrica híbrida baseada no valor de informação mútua junto à
+verossimilhança logarítmica.
+
+O uso dessas duas métricas está fundamentado, já que a
+verossimilhança devolve valores altos para termos que acontecem como
+erros, como por exemplo ``\textit{the the}'' no idioma inglês. Porém,
+a informação mútua diminui a possibilidade deste tipo de expressão ser
+escolhida como termo.
+
+Para melhorar os resultados de Pantel e Lin, o trabalho de 
+\cite{keyphrase1} propôs o uso de uma fonte externa maior
+(\emph{background}) para calcular as probabilidades com maior precisão
+que usando apenas o texto a ser analisado (\emph{foreground}). Para
+cada fonte foi criado um modelo de linguagem, que é uma estrutura de
+dados que armazena probabilidades de ocorrências de uma palavra
+(\emph{unigram}) ou de várias palavras (N-\emph{gram}) aparecerem no
+texto.
+
+Tomokiyo e Hurst usaram também o ponto de divergência \emph{KL}
+(Kullback-Leibler) para medir a ineficácia de assumir uma certa
+distribuição de probabilidade $p$ quando a verdadeira é $q$. A
+divergência KL é conhecida também como entropia relativa.
+
+Finalmente, o trabalho de \cite{phrasalterm} compara diferentes
+métricas, a \emph{MutualRank} entre elas, e explica que os métodos
+estatísticos não têm bons resultados devido à incorreta suposição da
+distribuição de probabilidade (como por exemplo distribuição normal ou
+de Poisson), mas que a distribuição \textit{Zipf} é a mais apropriada porque
+ela se amolda melhor em distribuições assimétricas (\textit{skewed
+distribution} em inglês), as quais são mais comuns em ocorrências de
+palavras.
+
+A conclusão de Deane com respeito à incorreta suposição da
+distribuição de probabilidade também é defendida pelo trabalho de \cite{mwe}, que usou o alinhamento de sequências na extração de
+termos.
+
+
+\section{Ferramentas para a extração de termos}
+A seguir apresentamos uma lista de ferramentas disponíveis na Internet,
+dedicadas à extração de termos:
+
+\begin{itemize}
+
+\item \textbf{ExatoLP} é uma ferramenta desenvolvida na Universidade de Rio Grande do Sul para extrair termos a partir de textos escritos em Português. 
+
+\item \textbf{KEA}  é um extrator de palavras chave para documentos, portanto, devolve poucas palavras-chave para um texto. O trabalho de \cite{kea-portugues} adaptou este sistema para o Português.
+
+\item \textbf{TOPIA} é parte da biblioteca ZOPE, que é uma biblioteca de aplicações escrita em Python. De código simples, compete contra a ferramenta \textit{online} do Yahoo. Usa um léxico em Inglês com muitas anotações sintáticas. Ele usa a métrica C/NC-\textit{Values}.
+
+\item \textbf{Text-NSP} (\textit{Ngram Statistic Package})  é uma biblioteca Perl de utilidades para a análise estatística  em textos. É uma ferramenta muito usada para trabalhos em linguística que analisam palavras.
+
+\item \textbf{AlchemyAPI} é uma biblioteca com outras utilidades interessantes para aplicação em \textit{sites}, tais como extração de entidades nomeadas, marcações de conceitos, análise de sentimentos em textos, entre outras. Existe a versão da biblioteca para Android OS (Mobile SDK), Java, Perl, Ruby, Python, PHP, C++ e C\#. Não é livre e precisa se registrar para obter um \textit{API Key}.
+
+\item \textbf{MAUI} é uma ferramenta cujo objetivo é etiquetar um texto com os termos que definem tal texto. Ele tem suporte em Espanhol, Francês e Alemão. Esta ferramenta consulta a \textit{web} para adquirir informação contextual.
+\end{itemize}
+
+Existem também sistemas \textit{online} que realizam a tarefa de extração de termos. Vemo-los na continuação:
+
+\begin{itemize}
+  \item \textbf{\textit{Five Filter Term Extraction}} suporta Inglês e usa a ferramenta TOPIA.
+  
+  \item \textbf{\textit{ZEMANTA}} é um serviço \textit{web}. Uma versão  cliente pode ser
+    baixada  para realizar consultas em informações contextuais com 
+    relação aos textos que o usuário ingressa.
+    
+  \item \textbf{\textit{Yahoo's Term Extraction}}  é um dos melhores. A quantidade de 
+    consultas são restritas por dia.
+    
+  \item \textbf{\textit{Translated.net, Terminology Extraction}}  suporta os idiomas Inglês, Italiano 
+    e Francês.
+
+  \item \textbf{\textit{TermMine}} suporta apenas o idioma Inglês. Possui uma versão para baixar e  usar com o Protégé.  Usa a métrica C/NC-i. Como lematizador usa
+    o TreeTagger (comercial) e o Genia Tagger.
+    
+    \item OpenCalais \footnote{ \url{http://www.opencalais.com/} } é uma ferramenta similar a MAUI, porém, mais completa pois ela faz marcações semânticas para um determinado texto. É usado em Drupal e outros CMS (\textit{Content Management System} ).
+\end{itemize}
+
+\section{Reconhecimento de sintagmas nominais e preposicionais}
+O Cogroo, apresentado em \cite{cogroo}, é um projeto de código livre
+para correção gramatical de textos em língua portuguesa. Ele possui
+uma API que pode ser usada para realizar a lematização \footnote{A lematização é o processo de extrair as palavras sem inflexões de tempo, gênero e número, chamando elas de \textit{lemas}} do \textit{corpus}.
+
+O projeto Cogroo usou o \textit{corpus} da Floresta Sintática
+\footnote{Floresta Sintática
+  \url{http://www.linguateca.pt/floresta/corpus.html}} para treinar e
+gerar modelos gramaticais. Tal \textit{corpus} foi gerado pelo
+\texttt{PALAVRAS}, que é uma ferramenta comercial para a análise
+gramatical.
+
+Uma vantagem de usar o Cogroo é a desambiguação de frases. Por exemplo
+na sentença \textit{Quem casa quer casa}, ele identifica positivamente
+que a primeira ocorrência de \textit{casa} refere-se a um verbo e a
+segunda ocorrência refere-se a um substantivo.
+
+O Cogroo usa um \textit{shallow parser} para construir uma árvore
+sintática simples. A partir dessa árvore, pode-se obter uma lista de
+\textit{tokens}, cada um contendo a informação sintática (NP,SUB,etc) e/ou
+morfológica (\textit{Noun}, \textit{third person}, etc) das unidades gramaticais da
+oração.
+
+Por exemplo, na frase \textit{Os métodos ágeis são importantes no
+  desenvolvimento de software}, o Cogroo realizou uma análise
+sintática, obtendo uma lista de \textit{tokens} e uma árvore sintática que
+apreciamos na Tabela \ref{tab:lematizacao} e na Figura
+\ref{fig:arvore} respectivamente.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{|l|l|l|} \hline
+   \textbf{\textit{Token}} & \textbf{Lema} & \textbf{\textit{Tag} Morfológico} \\ \hline
+   Os & o  & \textit{determiner,male,plural} \\ \hline
+   métodos  & método  & \textit{noun,male,plural} \\ \hline
+   ágeis & ágil  & \textit{adjective,male,plural}  \\ \hline
+   são  & ser  & \textit{verb,plural,third,present,indicative,finite}  \\ \hline
+   importantes  & importante  & \textit{adjective,male,plural}  \\ \hline
+   no  & em  & \textit{preposition}  \\ \hline
+   no  & o  & \textit{determiner,male,singular}  \\ \hline
+   desenvolvimento  & desenvolvimento  &  \textit{noun,male,singular}  \\ \hline
+   de  & de  & \textit{preposition}  \\ \hline
+   software  & software & \textit{noun,male,singular} \\ \hline
+  \end{tabular}
+  \caption{Lematização e informação morfológica}
+  \label{tab:lematizacao}
+\end{table}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\linewidth]{Images/arvore.png}
+  \caption{Árvore sintática retornada pelo Cogroo}
+  \label{fig:arvore}
+\end{figure}
+
+
+
+
+\section{Extração de candidatos a termos com a métrica
+  C-\textit{value}/NC-\textit{value}}
+\label{sec:termos-nc}
+
+A métrica C/NC-\textit{value} é prática, pois precisa
+das frequências das palavras, e também confiável, já que vários
+sistemas a usam, como o Copia, o Term Extractor e OntoLP (\textit{plugin}
+desenvolvido no trabalho de \cite{Luiz:Carlos:08}).
+
+Esta métrica foi introduzida no trabalho de \cite{frantzi98} e combina
+informação linguística e estatística. O processo divide-se em duas
+etapas: (i) Calcular os C-\textit{values}, e (ii) Calcular os NC-\textit{value}s.
+
+\subsection{Calculando os C-\textit{values}}
+Aqui calculamos um valor de \textit{ranking} para os candidatos de termos
+usando apenas a frequência das palavras no texto. Consiste em duas
+partes:
+\begin{enumerate}
+\item Parte Linguística:
+  \begin{enumerate}
+  \item Realiza-se um processo de lematização em todo o texto.
+  \item Aplica-se um filtro linguístico para conseguir os sintagmas
+    nominais e preposicionais.
+  \item Remove-se os \textit{stop-words}.
+  \end{enumerate}
+
+\item Na parte estatística, retorna-se um valor para uma cadeia
+  candidata a termo usando:
+  \begin{enumerate}
+  \item A frequência total de ocorrências da cadeia candidata no
+    \textit{corpus}.
+  \item A frequência da cadeia candidata como parte de outros
+    candidatos a termos maiores.
+  \item O número desses candidatos maiores.
+  \item O tamanho dos candidatos (quantidade de palavras).
+  \end{enumerate}
+\end{enumerate}
+
+Finalmente a métrica C-\textit{value} fica explícita da seguinte forma:
+\begin{equation}
+  {C\!\!-\!\!value(a)} = \left\{
+    \begin{array}{l}
+      log_2|a| \times f(a)  $, se $a$ estiver isolado$ \\
+      log_2|a| \times (f(a) - \frac{1}{P(T_a)}\sum_{b \in T_a}f(b)) $, caso contrário$
+    \end{array}
+  \right.
+  \label{eq:c-value}
+\end{equation}
+em que:
+\begin{description}
+\item[$a$] é o candidato a termo,
+\item[$f(.)$] é a frequência de ocorrência no \textit{corpus},
+\item[$T_a$] é o conjunto de candidato a termos extraídos que contém $a$,
+\item[$P(T_a)$] é o número desses candidatos a termos.
+\end{description}
+
+\subsection{Calculando os NC-\textit{values}}
+Uma vez calculado os C-\textit{values}, a informação contextual é
+usada para ajudar na identificação dos termos corretos. O fundamento
+de usar tal recurso se deve a que normalmente podemos identificar o
+significado de uma palavra analisando o contexto em que ela aparece.
+
+Os tipos de palavras contextuais podem ser adjetivos, substantivos ou
+verbos que estão próximos a um candidato a termo. A relevância de uma
+palavra contextual $weight(.)$:
+
+\begin{equation}
+  weight(w) = \frac{t(w)}{n}
+  \label{eq:context-ranking}
+\end{equation}
+em que :
+\begin{description}
+\item[$w$] é a palavra contextual (substantivo, verbo ou adjetivo)
+\item[$t(w)$] é o número de termos em que a palavra $w$ aparece adjacente.
+\item[$n$] número total de termos considerados
+\end{description}
+
+
+Finalmente, temos:
+\begin{equation}
+  {NC\!\!-\!\!value(a)} = 0.8 \times {C\!\!-\!\!value(a)} + 0.2 \times \sum_{b \in C_a} f_a(b) weight(b)
+  \label{eq:nc-value}
+\end{equation}
+em que:
+\begin{description}
+\item[$a$] é o termo candidato,
+\item[$C_a$] é o conjunto de diferentes palavras contextuais de $a$
+\item[$b$] é uma palavra de $C_a$,
+\item[$f_a(b)$] é a frequência de $b$ como uma palavra de contexto de $a$
+\end{description}
+
+%Fechamento
+Neste capítulo descrevemos alguns métodos e ferramentas para a extração de termos. Falamos sobre a ferramenta Cogroo e descrevemos a métrica C/NC-\textit{Value}. No próximo capítulo continuamos descrevendo um sistema de AO falando sobre: \emph{a descoberta de relações}.
